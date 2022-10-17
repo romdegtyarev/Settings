@@ -1,0 +1,5 @@
+numlockx &
+#[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+#xrdb -load $HOME/.Xresources
+exec i3 2>/dev/null
+
