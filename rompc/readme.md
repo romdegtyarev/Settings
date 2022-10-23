@@ -133,6 +133,7 @@ usermod -aG docker username_1
   
 sudo apt-get install lm-sensors  
   
+sudo apt-get install vlc  
 sudo apt-get install pinta  
 sudo apt-get install simplescreenrecorder  
   
@@ -153,6 +154,7 @@ sudo apt-get install python3-pip
 sudo apt-get install python3-venv  
 sudo apt-get install mesa-vulkan-drivers  
 sudo apt-get install vulkan-utils  
+sudo apt-get install dh-autoreconf  
 
 ### Настройка пакетов для работы:  
 sudo apt-get install virtualbox  
@@ -167,6 +169,7 @@ sudo apt-get install python-scapy
 sudo apt-get install tftpd  
 sudo apt-get install tftp  
 sudo apt-get install nfs-kernel-server  
+sudo apt-get install nginx  
   
 sudo apt-get install pidgin  
 *Mattermost Установщик*  

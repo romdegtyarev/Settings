@@ -137,6 +137,9 @@ pacman -S htop
 pacman -S go  
   
 pacman -S net-tools  
+pacman -S whois  
+pacman -S nmap  
+pacman -S ufw  
 pacman -S wireless_tools  
 pacman -S extra/wireguard-tools  
 *Настройка wg*  
@@ -255,6 +258,7 @@ pacman -S gvfs-smb
 pacman -S aur/aria2c-daemon  
 pacman -S rsync  
 pacman -S acpi *Температура, Батарея*  
+pacman -S community/lshw  
   
 pacman -S core/openresolv  
 pacman -S blueman  
@@ -276,6 +280,7 @@ pacman -S aur/cider
 pacman -S pinta  
 pacman -S gimp  
 pacman -S simplescreenrecorder  
+pacman -S extra/nvidia-settings  
   
 pacman -S extra/qrencode  
 pacman -S community/galculator  
