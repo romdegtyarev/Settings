@@ -47,7 +47,6 @@ ln -s /local/store/git/Settings/common/gitconfig ~/.gitconfig
 ln -s /local/store/git/Settings/common/vim/vimrc ~/.vimrc
 sudo ln -s /local/store/git/Settings/common/smb.conf /etc/samba/smb.conf
 sudo ln -s /local/store/git/Settings/common/pacman.conf /etc/pacman.conf
-ln -s /local/store/git/Settings/common/Pinta ~/.config/Pinta
 ln -s /local/store/git/Settings/common/rofi ~/.config/rofi
 
 sudo ln -s /local/store/git/Settings/homeserver/minidlna.conf /etc/minidlna.conf

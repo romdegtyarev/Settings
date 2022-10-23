@@ -3,12 +3,19 @@
 # This is the sshd server system-wide configuration file.  See
 # sshd_config(5) for more information.
 
-# This sshd was compiled with PATH=/usr/local/sbin:/usr/local/bin:/usr/bin
+# This sshd was compiled with PATH=/usr/bin:/bin:/usr/sbin:/sbin
 
 # The strategy used for options in the default sshd_config shipped with
 # OpenSSH is to specify options with their default value where
 # possible, but leave them commented.  Uncommented options override the
 # default value.
+
+# This Include directive is not part of the default sshd_config shipped with
+# OpenSSH. Options set in the included configuration files generally override
+# those that follow.  The defaults only apply to options that have not been
+# explicitly set.  Options that appear multiple times keep the first value set,
+# unless they are a multivalue option such as HostKey.
+Include /etc/ssh/sshd_config.d/*
 
 Port 8888
 #AddressFamily any
@@ -69,8 +76,6 @@ PermitEmptyPasswords no
 # GSSAPI options
 #GSSAPIAuthentication no
 #GSSAPICleanupCredentials yes
-#KexAlgorithms diffie-hellman-group1-sha1,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha1
-#Ciphers 3des-cbc,blowfish-cbc,aes128-cbc,aes128-ctr,aes256-ctr
 
 # Set this to 'yes' to enable PAM authentication, account processing,
 # and session processing. If this is enabled, PAM authentication will
@@ -86,11 +91,11 @@ PermitEmptyPasswords no
 #AllowAgentForwarding yes
 #AllowTcpForwarding yes
 #GatewayPorts no
-X11Forwarding yes
+#X11Forwarding yes
 #X11DisplayOffset 10
 #X11UseLocalhost yes
 #PermitTTY yes
-PrintMotd no
+#PrintMotd no
 #PrintLastLog yes
 #TCPKeepAlive yes
 #PermitUserEnvironment no
@@ -98,7 +103,7 @@ PrintMotd no
 #ClientAliveInterval 0
 #ClientAliveCountMax 3
 #UseDNS no
-#PidFile /run/sshd.pid
+#PidFile /var/run/sshd.pid
 #MaxStartups 10:30:100
 #PermitTunnel no
 #ChrootDirectory none
@@ -108,5 +113,5 @@ PrintMotd no
 #Banner none
 
 # override default of no subsystems
-Subsystem	sftp	/usr/lib/ssh/sftp-server
+Subsystem	sftp	/usr/libexec/sftp-server
 

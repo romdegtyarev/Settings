@@ -19,7 +19,7 @@ sudo ln -s /local/store/git/Settings/rompc/i3/i3blocks /usr/lib/i3blocks
 ln -s /local/store/git/Settings/common/X11/xinitrc ~/.xinitrc
 sudo ln -s /local/store/git/Settings/common/X11/keyboard /etc/default/keyboard
 
-ln -s /local/store/git/Settings/rompc/scripts/xmodmap.sh ./xmodmap.sh 
+ln -s /local/store/git/Settings/rompc/scripts/xmodmap.sh ./xmodmap.sh
 
 ln -s /local/store/git/Settings/rompc/gtkrc-2.0 ~/.gtkrc-2.0
 

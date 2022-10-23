@@ -8,9 +8,7 @@ cp -r ~/local/store/git/Settings/common/zsh/themes/* ~/.oh-my-zsh/themes/
 cp -r ~/local/store/git/Settings/common/zsh/plugins/* ~/.oh-my-zsh/custom/plugins/
 
 # tmux
-ln -s ~/local/store/git/Settings/common/tmux/tmux.conf ~/.tmux.conf
-
-ln -s ~/local/store/git/Settings/common/fonts ~/.fonts
+ln -s ~/local/store/git/Settings/rommacair/tmux/tmux.conf ~/.tmux.conf
 
 # Apps
 sudo ln -s ~/local/store/git/Settings/rommacair/ssh/sshd_config /etc/ssh/sshd_config
