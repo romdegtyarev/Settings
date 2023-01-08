@@ -100,6 +100,9 @@ alias l='ls -CF'
 alias tmux='tmux -2'
 alias pingg='ping 8.8.8.8'
 
+#For MACBOOK
+alias icloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
+
 #COPY LIKE MC
 alias cpr='cp -t $(tmux run-shell -b -t right "echo -n #{pane_current_path} > /tmp/tmp_path_on_pane" && sleep 0.01; cat /tmp/tmp_path_on_pane)'
 alias cpl='cp -t $(tmux run-shell -b -t left "echo -n #{pane_current_path} > /tmp/tmp_path_on_pane" && sleep 0.01; cat /tmp/tmp_path_on_pane)'

@@ -234,5 +234,8 @@ pip3 install pytelegrambotapi
 
 ### Настройка пакетов для работы:  
 pacman -S freeradius  
+pacman -S extra/wireguard-tools  
+pacman -S extra/tcpdump  
+pacman -S community/iperf  
 
 
