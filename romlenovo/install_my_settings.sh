@@ -44,7 +44,7 @@ ln -s /local/store/git/Settings/common/libfm ~/.config/libfm
 ln -s /local/store/git/Settings/common/pcmanfm ~/.config/pcmanfm
 
 # Apps
-sudo ln -s /local/store/git/Settings/common/ssh/sshd_config /etc/ssh/sshd_config
+sudo cp /local/store/git/Settings/common/ssh/sshd_config /etc/ssh/sshd_config
 ln -s /local/store/git/Settings/common/gitconfig ~/.gitconfig
 ln -s /local/store/git/Settings/common/vim/vimrc ~/.vimrc
 sudo ln -s /local/store/git/Settings/common/smb.conf /etc/samba/smb.conf

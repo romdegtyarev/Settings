@@ -34,7 +34,7 @@ bindsym Ctrl+$mod+e exec /opt/eclipse/eclipse/eclipse
 bindsym Ctrl+$mod+b exec firefox
 bindsym Ctrl+$mod+m exec thunderbird
 bindsym Ctrl+$mod+f exec telegram-desktop
-bindsym Ctrl+$mod+j exec mattermost-desktop
+bindsym Ctrl+$mod+j exec /opt/mattermost-desktop-4.5.0-linux-x64/mattermost-desktop
 bindsym Ctrl+$mod+t exec gedit
 bindsym Ctrl+$mod+v exec virtualbox
 
@@ -94,8 +94,8 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # Set workspace
-set $wspace1 "1: "
-set $wspace2 "2:"
+set $wspace1 "1:"
+set $wspace2 "2: "
 set $wspace3 "3:"
 set $wspace4 "4:"
 set $wspace5 "5:"
@@ -177,11 +177,12 @@ client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-co
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
 
 # Enable border only when have more than one window
-default_border pixel 1
-default_floating_border none
 hide_edge_borders smart
-gaps inner 5
-gaps outer 5
+#default_border pixel 1
+#default_floating_border none
+#gaps inner 5
+#gaps outer 5
+
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -211,11 +212,11 @@ exec --no-startup-id xxkb &
 exec --no-startup-id feh --randomize --bg-fill ~/Pictures/Wallpapers/*
 exec --no-startup-id xset -b
 exec --no-startup-id numlock &
-exec --no-startup-id touchpad-toggle.sh &
+#exec --no-startup-id touchpad-toggle.sh &
 
 # Custom shortcut
 # Lockscreen and suspend
-set $Locker i3lock-fancy-rapid 1 15
+set $Locker i3lock-fancy
 bindsym Ctrl+$mod+l exec --no-startup-id $Locker
 bindsym Ctrl+$mod+k exec --no-startup-id systemctl suspend
 
@@ -237,10 +238,12 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20   #increase screen brightnes
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 #decrease screen brightness
 
 # Screenshot
-set $Scrot_pictures (/local/store/git/Settings/common/scripts/scrot.sh&)
-bindsym --release Print exec --no-startup-id $Scrot_pictures
-bindsym --release Shift+Print exec --no-startup-id $Scrot_pictures -u
-bindsym --release Ctrl+Print exec --no-startup-id $Scrot_pictures -s
+set $Scrot_pictures (/local/store/git/Settings/common/scripts/scrot.sh &)
+set $Scrot_pictures_u (/local/store/git/Settings/common/scripts/scrot.sh -u &)
+set $Scrot_pictures_s (/local/store/git/Settings/common/scripts/scrot.sh -s &)
+bindsym --release Ctrl+Shift+End exec --no-startup-id $Scrot_pictures
+bindsym --release Shift+End exec --no-startup-id $Scrot_pictures_u
+bindsym --release Ctrl+End exec --no-startup-id $Scrot_pictures_s
 
 # Layout
 set $KeyLayoutUpdate (pkill -SIGRTMIN+3 i3blocks)

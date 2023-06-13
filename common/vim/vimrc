@@ -11,6 +11,7 @@ set t_Co=256
 " Show tab and space
 set list
 set listchars=tab:>.,trail:.,extends:\#,nbsp:.
+set wrap
 
 syntax on
 

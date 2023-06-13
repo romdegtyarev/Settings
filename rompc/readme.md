@@ -48,6 +48,9 @@ sudo apt-get install xclip
 sudo apt-get install htop  
   
 sudo apt-get install net-tools  
+sudo apt-get install wireguard  
+*Настройка wg*  
+sudo apt-get install resolvconf  
 
 ### Настройка хранилища:  
 chmod -R 777 /local/store/  
@@ -140,6 +143,8 @@ sudo apt-get install simplescreenrecorder
 sudo apt-get install gedit-plugins  
 sudo apt-get install libreoffice  
   
+sudo snap install telegram-desktop  
+sudo dpkg -i ./discord-0.0.27.deb  
 sudo apt-get install thunderbird  
   
 *Eclipse Установщик*  

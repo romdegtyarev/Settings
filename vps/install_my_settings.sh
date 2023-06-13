@@ -11,7 +11,7 @@ sudo cp -r /local/store/git/Settings/common/zsh/plugins/* /usr/share/oh-my-zsh/c
 ln -s /local/store/git/Settings/common/tmux/tmux.conf ~/.tmux.conf
 
 # Apps
-sudo ln -s /local/store/git/Settings/common/ssh/sshd_config /etc/ssh/sshd_config
+sudo cp /local/store/git/Settings/common/ssh/sshd_config /etc/ssh/sshd_config
 ln -s /local/store/git/Settings/common/gitconfig ~/.gitconfig
 ln -s /local/store/git/Settings/common/vim/vimrc ~/.vimrc
 

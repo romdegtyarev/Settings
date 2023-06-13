@@ -11,7 +11,6 @@ cp -r ~/local/store/git/Settings/common/zsh/plugins/* ~/.oh-my-zsh/custom/plugin
 ln -s ~/local/store/git/Settings/rommacair/tmux/tmux.conf ~/.tmux.conf
 
 # Apps
-sudo ln -s ~/local/store/git/Settings/rommacair/ssh/sshd_config /etc/ssh/sshd_config
 ln -s ~/local/store/git/Settings/common/gitconfig ~/.gitconfig
 ln -s ~/local/store/git/Settings/common/vim/vimrc ~/.vimrc
 

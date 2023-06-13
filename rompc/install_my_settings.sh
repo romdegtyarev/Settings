@@ -11,7 +11,7 @@ sudo cp -r /local/store/git/Settings/common/zsh/plugins/* /usr/share/oh-my-zsh/c
 ln -s /local/store/git/Settings/common/tmux/tmux.conf ~/.tmux.conf
 
 # i3wm
-ln -s /local/store/git/Settings/rompc/i3/config ~/.config/i3/config
+ln -s /local/store/git/Settings/common/i3/config ~/.config/i3/config
 ln -s /local/store/git/Settings/rompc/i3/i3blocks.conf ~/.config/i3/i3blocks.conf
 sudo ln -s /local/store/git/Settings/rompc/i3/i3blocks /usr/lib/i3blocks
 
@@ -38,7 +38,7 @@ ln -s /local/store/git/Settings/rompc/libfm ~/.config/libfm
 ln -s /local/store/git/Settings/rompc/pcmanfm ~/.config/pcmanfm
 
 # Apps
-sudo ln -s /local/store/git/Settings/common/ssh/sshd_config /etc/ssh/sshd_config
+sudo cp /local/store/git/Settings/common/ssh/sshd_config /etc/ssh/sshd_config
 ln -s /local/store/git/Settings/rompc/gitconfig ~/.gitconfig
 ln -s /local/store/git/Settings/common/vim/vimrc ~/.vimrc
 sudo ln -s /local/store/git/Settings/common/smb.conf /etc/samba/smb.conf
