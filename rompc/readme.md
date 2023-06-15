@@ -13,6 +13,7 @@ sudo apt-get upgrade
 
 ### Настройка времени:  
 sudo apt-get install ntpdate  
+sudo apt-get install ntp  
 
 ### Настройка имени хост машины:  
 
