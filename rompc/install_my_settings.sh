@@ -39,6 +39,8 @@ ln -s /local/store/git/Settings/rompc/pcmanfm ~/.config/pcmanfm
 
 # Apps
 sudo cp /local/store/git/Settings/common/ssh/sshd_config /etc/ssh/sshd_config
+sudo cp /local/store/git/Settings/common/ssh/ssh_config /etc/ssh/ssh_config
+# See common/ssh/help.txt
 ln -s /local/store/git/Settings/rompc/gitconfig ~/.gitconfig
 ln -s /local/store/git/Settings/common/vim/vimrc ~/.vimrc
 sudo ln -s /local/store/git/Settings/common/smb.conf /etc/samba/smb.conf
