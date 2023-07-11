@@ -39,6 +39,7 @@ sudo apt-get install sshpass
 systemctl start sshd.service  
 systemctl enable sshd.service  
 ssh-keygen  
+sudo apt-get install fail2ban  
   
 sudo apt-get install git  
 sudo apt-get install vim  

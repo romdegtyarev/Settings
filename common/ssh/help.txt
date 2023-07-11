@@ -1,0 +1,101 @@
+From: https://www.opennet.ru/tips/2877_ssh_crypt_setup_security_nsa.shtml
+
+Обмен ключами.
+
+Применяемые в SSH методы обмена ключей  DH (Diffie-Hellman) и ECDH (Elliptic
+Curve Diffie-Hellman) можно считать безопасными. Из 8 поддерживаемых в SSH
+протоколов обмена ключами вызывают подозрения три,  основанные на рекомендациях
+NIST: ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521. Не
+заслуживающими полного доверия также можно считать протоколы, использующие
+потенциально проблемный SHA1. Протоколы curve25519-sha256 и diffie-hellman-group-exchange-sha256
+ пока не вызывают сомнений в безопасности.
+
+Для использования только заслуживающих доверия протоколов обмена ключами в
+/etc/ssh/sshd_config  для сервера следует указать:
+
+    KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256
+
+Аналогичные настройки для клиента, в /etc/ssh/ssh_config:
+
+   Host *
+      KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256
+
+В /etc/ssh/moduli можно указать (или удалить строки с размером ключа, менее 2048):
+
+   ssh-keygen -G /tmp/moduli -b 4096
+   ssh-keygen -T /etc/ssh/moduli -f /tmp/moduli
+
+
+Аутентификация.
+
+В SSH поддерживается четыре алгоритма аутентификации по открытым ключам: DSA,
+ECDSA,  Ed25519 и RSA. ECDSA завязан на технологиях NIST и должен быть
+отключен. К сожалению, если просто удалить ключ ECDSA, он будет повторно
+сгенерирован, поэтому можно воспользоваться обходным путём с создать заведомо
+нерабочую символическую ссылку, которая помешает сгенерировать и использовать ключ:
+
+   cd /etc/ssh
+   rm ssh_host_ecdsa_key*
+   rm ssh_host_key*
+   ln -s ssh_host_ecdsa_key ssh_host_ecdsa_key
+   ln -s ssh_host_key ssh_host_key
+
+Так как размер ключей DSA  не может превышать 1024, его тоже следует отключить тем же способом:
+
+   cd /etc/ssh
+   rm ssh_host_dsa_key*
+   ln -s ssh_host_dsa_key ssh_host_dsa_key
+
+Далее, следует позаботиться о RSA, сгенерировав ключ большего размера:
+
+   cd /etc/ssh
+   rm ssh_host_rsa_key*
+   ssh-keygen -t rsa -b 4096 -f ssh_host_rsa_key < /dev/null
+
+Для создания клиентских ключей лучше использовать команды:
+
+   ssh-keygen -t ed25519
+   ssh-keygen -t rsa -b 4096
+
+
+Симметричные шифры.
+
+Из 15 поддерживаемых в SSH алгоритмов симметричного шифрования, используемых
+для организации защиты установленного канала связи, безопасными можно считать
+chacha20-poly1305, aes*-ctr и aes*-gcm. Шифры 3des-cbc и arcfour потенциально
+уязвимы в силу использования DES и RC4, cast128-cbc применяет слишком короткий
+размер блока (64 бит).
+
+В итоге, в /etc/ssh/sshd_config рекомендуется добавить:
+
+   Ciphers aes256-gcm@openssh.com,aes128-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+
+В /etc/ssh/ssh_config:
+
+   Host *
+      Ciphers aes256-gcm@openssh.com,aes128-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+
+Код аутентичности сообщения (MAC).
+
+Для шифров в режиме  CTR для гарантирования  целостности передаваемых блоков
+доверия заслуживает только метод Encrypt-then-MAC ("*-etm", MAC добавляется  к
+уже зашифрованному блоку). Методы MAC-then-encrypt и Encrypt-and-MAC
+потенциально подвержены атакам. Из 18 доступных в SSH алгоритмов MAC  сразу
+следует отбросить основанные на хэшах  MD5 и SHA1, не стойких к выявлению
+коллизий, а также алгоритмы использующие размеры ключей менее 128 бит и размеры
+тегов менее 256 бит. В итоге, наиболее безопасными MAC  можно считать
+hmac-sha2-512-etm и hmac-sha2-256-etm.
+
+В /etc/ssh/sshd_config:
+
+   MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com
+
+В /etc/ssh/ssh_config:
+
+   # Для GitHub в качестве исключения добавляем mac-sha2-512, так как он не поддерживает Encrypt-then-MAC.
+   Host github.com
+       MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512
+
+   Host *
+      MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com
+
