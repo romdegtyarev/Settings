@@ -1,5 +1,30 @@
-From: https://www.opennet.ru/tips/2877_ssh_crypt_setup_security_nsa.shtml
+From:
+https://www.opennet.ru/tips/2877_ssh_crypt_setup_security_nsa.shtml
 
+
+Do:
+sudo ssh-keygen -G /tmp/moduli -b 4096
+sudo ssh-keygen -T /etc/ssh/moduli -f /tmp/moduli
+
+cd /etc/ssh
+sudo rm ssh_host_ecdsa_key*
+sudo rm ssh_host_key*
+sudo ln -s ssh_host_ecdsa_key ssh_host_ecdsa_key
+sudo ln -s ssh_host_key ssh_host_key
+
+cd /etc/ssh
+sudo rm ssh_host_dsa_key*
+sudo ln -s ssh_host_dsa_key ssh_host_dsa_key
+
+cd /etc/ssh
+sudo rm ssh_host_rsa_key*
+sudo ssh-keygen -t rsa -b 4096 -f ssh_host_rsa_key < /dev/null
+
+ssh-keygen -t ed25519
+ssh-keygen -t rsa -b 4096
+
+
+Help info:
 Обмен ключами.
 
 Применяемые в SSH методы обмена ключей  DH (Diffie-Hellman) и ECDH (Elliptic
