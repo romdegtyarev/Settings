@@ -100,6 +100,7 @@ useradd -m -g users -G wheel username_1
 passwd username_1  
 useradd -m -g users -G wheel username_2  
 passwd username_2  
+sudo useradd -d /dev/null -s /usr/sbin/nologin -u UID -g GID -p UPASS UNAME  
   
 *Разрешаем пользователям состоящим в группе wheel использовать sudo (расскоментировав следующие строки):*  
 >%wheel ALL=(ALL) ALL):  
@@ -237,5 +238,7 @@ pacman -S freeradius
 pacman -S extra/wireguard-tools  
 pacman -S extra/tcpdump  
 pacman -S community/iperf  
+pacman -S usbutils  
+pacman -S extra/nut  
 
 
