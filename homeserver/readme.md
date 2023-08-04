@@ -232,6 +232,8 @@ pacman -S python-pip3
 python3 -m venv pyvenv  
 source ./pyvenv/bin/activate  
 pip3 install pytelegrambotapi  
+pacman -S aur/dump1090-git  
+pacman -S wget  
 
 ### Настройка пакетов для работы:  
 pacman -S freeradius  

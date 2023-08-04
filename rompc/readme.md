@@ -162,6 +162,7 @@ sudo apt-get install python3-venv
 sudo apt-get install mesa-vulkan-drivers  
 sudo apt-get install vulkan-utils  
 sudo apt-get install dh-autoreconf  
+sudo apt-get install chirp  
 
 ### Настройка пакетов для работы:  
 sudo apt-get install virtualbox  
