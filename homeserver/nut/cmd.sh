@@ -16,27 +16,29 @@ then
 
 fi
 
-# Use the curl command to send the message
-curl -s -X POST $TELEGRAM_BOT_API$TELEGRAM_BOT_API_TOKEN$TELEGRAM_BOT_API_SEND_MESSAGE_METHOD -d chat_id=$TELEGRAM_BOT_CHAT_ID -d text="$TELEGRAM_BOT_TEXT_MESSAGE"
-
 case $1 in
       commbad)
-      logger  "UPS communications failure"
+      TELEGRAM_BOT_TEXT_MESSAGE="UPS communications failure"
       ;;
       commok)
-      logger  "UPS communications restored"
+      TELEGRAM_BOT_TEXT_MESSAGE="UPS communications restored"
       ;;
       nocomm)
-      logger  "UPS communications cannot be established"
+      TELEGRAM_BOT_TEXT_MESSAGE="UPS communications cannot be established"
       ;;
       shutdowncritical)
-      logger "UPS battery level CRITICAL. Shutting down NOW!!!!"
+      TELEGRAM_BOT_TEXT_MESSAGE="UPS battery level CRITICAL. Shutting down NOW!!!!"
       ;;
       powerup)
-      logger "UPS on line. Shutdown aborted."
+      TELEGRAM_BOT_TEXT_MESSAGE="UPS on line. Shutdown aborted."
       ;;
       *)
-      logger "Unrecognized command: $1"
+      TELEGRAM_BOT_TEXT_MESSAGE="Unrecognized command: $1"
       ;;
 esac
+
+echo $TELEGRAM_BOT_TEXT_MESSAGE
+logger $TELEGRAM_BOT_TEXT_MESSAGE
+# Use the curl command to send the message
+curl -s -X POST $TELEGRAM_BOT_API$TELEGRAM_BOT_API_TOKEN$TELEGRAM_BOT_API_SEND_MESSAGE_METHOD -d chat_id=$TELEGRAM_BOT_CHAT_ID -d text="$TELEGRAM_BOT_TEXT_MESSAGE"
 
