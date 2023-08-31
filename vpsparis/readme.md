@@ -1,5 +1,5 @@
 # Система:  
-Ubuntu 22.04.1 LTS x86_64  
+Debian GNU/Linux 12 (bookworm) x86_64
 
 # Before start:  
 
@@ -30,10 +30,6 @@ adduser username_2
 usermod -aG sudo username_2  
 
 ### Установка и настройка основных пакетов:  
-sudo apt-get install openssh  
-systemctl start sshd.service  
-systemctl enable sshd.service  
-ssh-keygen  
 sudo apt-get install fail2ban  
   
 sudo apt-get install git  
@@ -48,10 +44,9 @@ sudo apt-get install wireguard
 *Настройка wg*  
 
 ### Настройка хранилища:  
+mkdir -p /local/store/  
 chmod -R 777 /local/store/  
 chown -R username_1:username_1 /local/store/  
-cd /local/store/  
-mkdir git  
 
 ### Настройка YAY:  
 
@@ -63,7 +58,6 @@ sudo mkdir oh-my-zsh
 cd  
 cd .oh-my-zsh  
 sudo cp -r ./ /usr/share/oh-my-zsh/  
-*Темы и плагины*  
 
 ### Настройка github:  
 mkdir -p /local/store/git/  
@@ -82,16 +76,13 @@ sudo apt-get install powerline
 sudo apt-get install neofetch  
 
 ### Настройка soft'a:  
-sudo apt-get install unrar  
+sudo apt-get install unrar-free  
 sudo apt-get install docker  
-usermod -aG docker username_1  
-systemctl start docker.service  
-systemctl enable docker.service  
 sudo apt-get install docker.io  
 sudo apt-get install docker-compose  
-  
-sudo apt-get install rsync  
-sudo apt-get install apache2-utils  
+sudo usermod -aG docker username_1  
+sudo systemctl start docker.service  
+sudo systemctl enable docker.service  
 
 ### Настройка пакетов для работы:  
 sudo apt-get install freeradius  
