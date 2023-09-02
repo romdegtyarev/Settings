@@ -18,6 +18,7 @@ then
     sudo systemctl restart minidlna.service
     timedatectl set-timezone Asia/Novosibirsk
     sudo ntpdate time.google.com
+    sudo upsdrvctl start
 
 elif [[ $mode == "Stop" ]]
 then
