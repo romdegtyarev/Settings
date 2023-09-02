@@ -26,11 +26,26 @@ case $1 in
       nocomm)
       TELEGRAM_BOT_TEXT_MESSAGE="UPS communications cannot be established"
       ;;
-      shutdowncritical)
+      )
       TELEGRAM_BOT_TEXT_MESSAGE="UPS battery level CRITICAL. Shutting down NOW!!!!"
       ;;
       powerup)
       TELEGRAM_BOT_TEXT_MESSAGE="UPS on line. Shutdown aborted."
+      ;;
+      onbatt)
+      TELEGRAM_BOT_TEXT_MESSAGE="UPS on battery"
+      ;;
+      lowbatt)
+      TELEGRAM_BOT_TEXT_MESSAGE="UPS battery is low"
+      ;;
+      shutdown)
+      TELEGRAM_BOT_TEXT_MESSAGE="Auto logout and shutdown proceeding"
+      ;;
+      replbatt)
+      TELEGRAM_BOT_TEXT_MESSAGE="UPS battery needs to be replaced"
+      ;;
+      noparent)
+      TELEGRAM_BOT_TEXT_MESSAGE="Upsmon parent process died - shutdown impossible"
       ;;
       *)
       TELEGRAM_BOT_TEXT_MESSAGE="Unrecognized command: $1"
