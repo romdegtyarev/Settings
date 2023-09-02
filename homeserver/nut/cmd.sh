@@ -26,9 +26,6 @@ case $1 in
       nocomm)
       TELEGRAM_BOT_TEXT_MESSAGE="UPS communications cannot be established"
       ;;
-      )
-      TELEGRAM_BOT_TEXT_MESSAGE="UPS battery level CRITICAL. Shutting down NOW!!!!"
-      ;;
       powerup)
       TELEGRAM_BOT_TEXT_MESSAGE="UPS on line. Shutdown aborted."
       ;;
