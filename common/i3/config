@@ -34,7 +34,7 @@ bindsym Ctrl+$mod+e exec /opt/eclipse/eclipse/eclipse
 bindsym Ctrl+$mod+b exec firefox
 bindsym Ctrl+$mod+m exec thunderbird
 bindsym Ctrl+$mod+f exec telegram-desktop
-bindsym Ctrl+$mod+j exec /opt/mattermost-desktop-4.5.0-linux-x64/mattermost-desktop
+bindsym Ctrl+$mod+j exec /opt/mattermost-desktop/mattermost-desktop
 bindsym Ctrl+$mod+t exec gedit
 bindsym Ctrl+$mod+v exec virtualbox
 
