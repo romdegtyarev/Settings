@@ -150,6 +150,8 @@ sudo dpkg -i ./discord-0.0.27.deb
 sudo apt-get install thunderbird  
   
 *Eclipse Установщик*  
+sudo apt-get install clang-format  
+sudo apt-get install clang-tidy  
 sudo apt-get install meld  
 sudo apt-get install wireshark-qt  
 sudo chmod 755 /usr/bin/dumpcap  
