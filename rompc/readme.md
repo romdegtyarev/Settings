@@ -150,13 +150,16 @@ sudo dpkg -i ./discord-0.0.27.deb
 sudo apt-get install thunderbird  
   
 *Eclipse Установщик*  
-sudo apt-get install clang-format  
-sudo apt-get install clang-tidy  
+sudo apt-get install libsystemd-dev  
 sudo apt-get install meld  
 sudo apt-get install wireshark-qt  
 sudo chmod 755 /usr/bin/dumpcap  
   
 sudo apt-get install golang  
+sudo apt-get install clang-format  
+sudo apt-get install clang-tidy  
+sudo apt-get install doxygen  
+sudo apt-get install doxygen-gui  
 sudo apt-get install python  
 sudo apt-get install python3  
 sudo apt-get install python3-pip  
@@ -165,6 +168,7 @@ sudo apt-get install mesa-vulkan-drivers
 sudo apt-get install vulkan-utils  
 sudo apt-get install dh-autoreconf  
 sudo apt-get install chirp  
+
 
 ### Настройка пакетов для работы:  
 sudo apt-get install virtualbox  
