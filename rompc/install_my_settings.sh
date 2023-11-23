@@ -20,15 +20,21 @@ sudo ln -s /local/store/git/Settings/common/i3/i3blocks /usr/lib/i3blocks
 ln -s /local/store/git/Settings/common/X11/xinitrc ~/.xinitrc
 sudo ln -s /local/store/git/Settings/common/X11/keyboard /etc/default/keyboard
 
-ln -s /local/store/git/Settings/rompc/scripts/xmodmap.sh ./xmodmap.sh
+ln -s /local/store/git/Settings/rompc/scripts/xmodmap.sh ~/xmodmap.sh
 
 ln -s /local/store/git/Settings/common/gtkrc-2.0 ~/.gtkrc-2.0
+ln -s /local/store/git/Settings/common/gtk-bookmarks ~/.gtk-bookmarks
+
 ln -s /local/store/git/Settings/common/gtk-2.0 ~/.config/gtk-2.0
 ln -s /local/store/git/Settings/common/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
 ln -s /local/store/git/Settings/rompc/gtk-3.0/bookmarks ~/.config/gtk-3.0/bookmarks
 ln -s /local/store/git/Settings/common/user-dirs.dirs ~/.config/user-dirs.dirs
 ln -s /local/store/git/Settings/common/user-dirs.locale ~/.config/user-dirs.locale
 
+sudo ln -s /local/store/git/Settings/common/gtkrc-2.0 /etc/gtk-2.0/gtkrc
+sudo ln -s /local/store/git/Settings/common/gtk-3.0/settings.ini /etc/gtk-3.0/settings.ini
+
+# Fonts
 ln -s /local/store/git/Settings/common/fonts ~/.fonts
 
 # roxterm
@@ -39,6 +45,7 @@ ln -s /local/store/git/Settings/common/libfm ~/.config/libfm
 ln -s /local/store/git/Settings/common/pcmanfm ~/.config/pcmanfm
 
 # Apps
+#SSH
 sudo cp /local/store/git/Settings/common/ssh/sshd_config /etc/ssh/sshd_config
 sudo cp /local/store/git/Settings/common/ssh/ssh_config /etc/ssh/ssh_config
 # See common/ssh/help.txt
@@ -64,6 +71,7 @@ sudo ssh-keygen -t rsa -b 4096 -f ssh_host_rsa_key < /dev/null
 
 ssh-keygen -t ed25519
 ssh-keygen -t rsa -b 4096
+
 
 ln -s /local/store/git/Settings/rompc/gitconfig ~/.gitconfig
 ln -s /local/store/git/Settings/common/vim/vimrc ~/.vimrc
