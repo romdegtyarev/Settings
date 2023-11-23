@@ -1,1 +1,0 @@
-../../../common/i3/i3blocks/weather.sh

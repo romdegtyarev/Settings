@@ -101,6 +101,7 @@ sudo apt-get install i3blocks
 sudo apt-get install i3status  
 sudo apt-get install i3lock-fancy  
 *Папка с настройками xorg /etc/X11/xorg.conf.d/*  
+*Установка темы*  
   
 sudo apt-get install rofi  
 sudo apt-get install dmenu  
@@ -109,8 +110,7 @@ sudo apt-get install compton
 sudo apt-get install feh  
   
 sudo apt-get install pavucontrol  
-*Скрипт установки или*  
-*sudo apt-get install pamixer*  
+sudo apt-get install pamixer  
   
 sudo apt-get install fonts-font-awesome  
 sudo apt-get install fonts-powerline  
@@ -150,10 +150,11 @@ sudo dpkg -i ./discord-0.0.27.deb
 sudo apt-get install thunderbird  
   
 *Eclipse Установщик*  
-sudo apt-get install libsystemd-dev  
 sudo apt-get install meld  
 sudo apt-get install wireshark-qt  
 sudo chmod 755 /usr/bin/dumpcap  
+  
+sudo apt-get install chirp  
   
 sudo apt-get install golang  
 sudo apt-get install clang-format  
@@ -164,11 +165,12 @@ sudo apt-get install python
 sudo apt-get install python3  
 sudo apt-get install python3-pip  
 sudo apt-get install python3-venv  
+  
 sudo apt-get install mesa-vulkan-drivers  
 sudo apt-get install vulkan-utils  
+  
+sudo apt-get install libsystemd-dev  
 sudo apt-get install dh-autoreconf  
-sudo apt-get install chirp  
-
 
 ### Настройка пакетов для работы:  
 sudo apt-get install virtualbox  
@@ -182,34 +184,11 @@ sudo apt-get install snmp
 sudo apt-get install python-scapy  
 sudo apt-get install tftpd  
 sudo apt-get install tftp  
+sudo apt-get install xinetd *Для fttp*  
 sudo apt-get install nfs-kernel-server  
 sudo apt-get install nginx  
   
-sudo apt-get install pidgin  
 *Mattermost Установщик*  
-  
-sudo apt-get install libc6-i386  
-sudo apt-get install lib32stdc++6  
-sudo apt-get install lib32gcc1  
-sudo apt-get install lib32ncurses5 *lib32ncurses6*  
-sudo apt-get install lib32z1  
-sudo apt-get install xinetd *Для fttp*  
-sudo apt-get install jacksum  
-sudo apt-get install dos2unix  
-sudo apt-get install u-boot-tools  
-sudo apt-get install m4  
-sudo usermod -a -G dialout ${USER}  
-sudo apt-get install wine1.6  
-sudo apt-get install bison  
-sudo apt-get install flex  
-sudo apt-get install gcc-mingw-w64  
-sudo apt-get install gcc-6-i686-linux-gnu  
-sudo apt-get install mingw-w64-tools  
-sudo apt-get install device-tree-compiler  
-sudo apt install locales-all  
-sudo apt install libssl1.0-dev  
-*sudo apt-get install node-fs.realpath*  
-*sudo apt-get install libssl-dev*  
 
 #### RDP  
 sudo apt-get install xrdp  
