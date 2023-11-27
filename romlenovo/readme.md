@@ -21,8 +21,8 @@ mkpart primary ext4 300GiB 100%
 quit  
 
 4. Форматируем разделы:  
-mkfs.ext4 /dev/sda1  
 mkswap /dev/sda2  
+mkfs.ext4 /dev/sda1  
 mkfs.ext4 /dev/sda3  
 mkfs.ext4 /dev/sda4  
 
@@ -77,8 +77,7 @@ FONT=cyr-sun16
 ### Настройка времени:  
 ln -sf /usr/share/zoneinfo/YOUR/TIME/ZONE /etc/localetime  
 hwclock --systohc --utc  
-timedatectl set-timezone YOUR/TIME/ZONE  
-pacman -S ntpdate  
+pacman -S aur/ntpdate  
 ntpdate time.google.com  
 
 ### Настройка имени хост машины:  
@@ -86,9 +85,6 @@ echo ROMLENOVO > /etc/hostname
 
 ### Настройка пароля root'a:  
 passwd  
-
-*В файл /etc/mkinitcpio.conf в поле HOOKS добавляем keymap:*  
->HOOKS="base udev … keymap"  
   
 mkinitcpio -p linux  
 
@@ -122,10 +118,15 @@ Include = /etc/pacman.d/mirrorlist
 
 ### Установка и настройка основных пакетов:  
 pacman -S openssh  
+pacman -S sshfs  
+pacman -S sshpass  
+pacman -S fail2ban  
 systemctl start sshd.service  
 systemctl enable sshd.service  
 ssh-keygen  
   
+pacman -S curl  
+pacman -S wget  
 pacman -S git  
 pacman -S vim  
 pacman -S zsh  
@@ -140,12 +141,16 @@ pacman -S net-tools
 pacman -S whois  
 pacman -S nmap  
 pacman -S ufw  
+pacman -S tcpdump  
+pacman -S iperf  
 pacman -S wireless_tools  
-pacman -S extra/wireguard-tools  
+pacman -S wireguard-tools  
 *Настройка wg*  
 pacman -S openvpn  
+pacman -S resolvconf  
 
 ### Настройка хранилища:  
+mkdir -p /local/store/  
 chmod -R 777 /local/store/  
 chown -R username_1:username_1 /local/store/  
 cd /local/store/  
@@ -168,6 +173,7 @@ sudo cp -r ./ /usr/share/oh-my-zsh/
 *Темы и плагины*  
 
 ### Настройка github:  
+mkdir -p /local/store/git/  
 cd /local/store/git/  
 git clone https://github.com/romdegtyarev/Settings.git  
 cd ./Settings/  
@@ -193,16 +199,14 @@ iptables -L
 pacman -S i3-gaps  
 pacman -S i3blocks  
 pacman -S i3status  
-pacman -S i3lock-fancy-rapid-git  
+pacman -S aur/i3lock-fancy-rapid-git  
 *Папка с настройками xorg /etc/X11/xorg.conf.d/*  
-pacman -S aur/vimix-icon-theme  
-pacman -S aur/vimix-gtk-themes  
 pacman -S lxappearance  
+*Установка темы vimix-icon-theme vimix-gtk-themes*  
   
 pacman -S rofi  
 pacman -S dmenu  
 pacman -S j4-dmenu-desktop  
-pacman -S compton  
 pacman -S picom  
 pacman -S feh  
   
@@ -215,34 +219,37 @@ pacman -S pulseaudio-alsa
   
 pacman -S xorg-xinit  
 pacman -S xorg-server  
-pacman -S xf86-video-nouveau  
 pacman -S xorg-xset  
   
+pacman -S xf86-video-nouveau  
 pacman -S xorg-xbacklight  
 pacman -S xf86-input-elographics  
 pacman -S xf86-input-evdev  
 pacman -S xf86-input-synaptics  
 pacman -S xf86-input-void  
 pacman -S aur/touchpad-toggle  
+pacman -S nvidia-settings  
   
 pacman -S oft-font-awesome  
 pacman -S ttf-font-awesome  
 pacman -S awesome-terminal-fonts  
+pacman -S powerline-fonts  
   
 pacman -S neofetch  
 pacman -S sl  
 pacman -S scrot  
-pacman -S community/xxkb  
+pacman -S xxkb  
 pacman -S i3-xkb-switcher  
 pacman -S pcmanfm  
-pacman -S roxterm  
+pacman -S aur/roxterm  
 pacman -S firefox  
 pacman -S keepassxc  
 
 ### Настройка soft'a:  
-pacman -S extra/unrar  
+pacman -S unrar  
 pacman -S unzip  
 pacman -S docker  
+pacman -S docker-compose  
 usermod -aG docker username_1  
 systemctl start docker.service  
 systemctl enable docker.service  
@@ -258,14 +265,15 @@ pacman -S gvfs-smb
 pacman -S aur/aria2c-daemon  
 pacman -S rsync  
 pacman -S acpi *Температура, Батарея*  
-pacman -S community/lshw  
+pacman -S lshw  
+pacman -S usbutils  
+pacman -S nut  
   
-pacman -S core/openresolv  
 pacman -S blueman  
-pacman -S extra/bluez  
+pacman -S bluez  
 pacman -S pulseaudio-modules-bt  
   
-pacman -S wpa_supplicant_gui  
+pacman -S aur/wpa_supplicant_gui  
 pacman -S network-manager-applet  
   
 pacman -S cups  
@@ -279,11 +287,10 @@ pacman -S aur/cider
   
 pacman -S pinta  
 pacman -S gimp  
-pacman -S simplescreenrecorder  
-pacman -S extra/nvidia-settings  
+pacman -S aur/simplescreenrecorder  
   
-pacman -S extra/qrencode  
-pacman -S community/galculator  
+pacman -S qrencode  
+pacman -S galculator  
 pacman -S evince *PDF*  
 pacman -S gedit  
 pacman -S gedit-plugins  
@@ -295,9 +302,14 @@ pacman -S thunderbird
   
 pacman -S wireshark-qt  
 sudo chmod 755 /usr/bin/dumpcap  
+  
+pacman -S clang-format-all-git  
+pacman -S doxygen  
+pacman -S python  
+pacman -S python-pip  
 
 ### Настройка пакетов для работы:  
-pacman -S community/virtualbox  
+pacman -S virtualbox  
 pacman -S linux-headers  
 pacman -S virtualbox-host-dkms  
 pacman -S virtualbox-guest-iso  
@@ -305,19 +317,18 @@ modprobe vboxdrv
   
 pacman -S freeradius  
 pacman -S aur/tacacs-plus  
-pacman -S community/scapy  
-pacman -S community/python-scapy  
+pacman -S scapy  
+pacman -S python-scapy  
   
-pacman -S freerdp  
-pacman -S xrdp  
-  
-pacman -S extra/pidgin  
 pacman -S mattermost-desktop  
   
 pacman -S aur/gns3-server  
 pacman -S aur/gns3-gui  
 pacman -S aur/ubridge  
-pacman -S extra/qemu  
+pacman -S qemu  
 pacman -S aur/dynamips  
 
+#### RDP  
+pacman -S freerdp  
+pacman -S xrdp  
 

@@ -1,66 +1,164 @@
 # Система:  
-Ubuntu 18.04.4 LTS x86_64  
+Arch Linux x86_64  
 
 # Before start:  
+1. Загружаемся с загрузочной флешки  
+
+2. Создаем разделы:  
+parted /dev/sda  
+*Для просмотра текущих разделов можно использовать команду:*  
+print  
+
+3. Задаем partition table для диска:  
+*Для BIOS с MBR:*  
+mklabel msdos  
+*Разделы: swap, /home, /local/store, /:*  
+mkpart primary linux-swap 1049kiB 16.4GiB  
+mkpart primary ext4 16.4GiB 119GiB  
+mkpart primary ext4 119GiB 631GiB  
+mkpart primary ext4 631GiB 100%  
+quit  
+
+4. Форматируем разделы:  
+mkswap /dev/sda1  
+mkfs.ext4 /dev/sda5  
+mkfs.ext4 /dev/sda6  
+mkfs.ext4 /dev/sda7  
+
+5. Монтируем разделы:  
+mount /dev/sda7 /mnt  
+mkdir -p /mnt/local/store  
+mount /dev/sda5 /mnt/home/  
+mount /dev/sda6 /mnt/local/store  
+swapon /dev/sda1  
+
+6. Устанавливаем Linux  
+pacman -Syy  
+pacman -S archlinux-keyring  
+pacman-key --init  
+pacman-key --populate archlinux  
+pacman-key --refresh-key  
+pacman-key --keyserver hkp://pgp.mit.edu --refresh-key  
+*[Информация о серверах](https://ru.wikipedia.org/wiki/%D0%A1%D0%B5%D1%80%D0%B2%D0%B5%D1%80_%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D1%85_%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%B9)*  
+pacstrap -i /mnt base  
+pacstrap -i /mnt linux  
+pacstrap -i /mnt linux-firmware  
+pacstrap -i /mnt base-devel  
+genfstab -U -p /mnt >> /mnt/etc/fstab  
+arch-chroot /mnt  
 
 # Start:  
-sudo apt-get update  
-sudo apt-get upgrade  
+pacman -Syy  
+pacman -S archlinux-keyring  
+pacman-key --init  
+pacman-key --populate archlinux  
+pacman-key --refresh-key  
+pacman-key --keyserver hkp://pgp.mit.edu --refresh-key  
 
 ### Настройка языка:  
+*Редактируем файл /etc/locale.gen (расскоментировав следующие строки):*  
+>en_US.UTF-8 UTF-8  
+ru_RU.UTF-8 UTF-8  
+  
+*Запускаем сборку:*  
+locale-gen  
 
 ### Настройка локали:  
+echo LANG=en_US.UTF-8 > /etc/locale.conf  
+export LANG=en_US.UTF-8  
+  
+*Редактируем файл /etc/vconsole.conf (добавив следующие строки):*  
+>KEYMAP=ru  
+FONT=cyr-sun16  
+  
 
 ### Настройка времени:  
-sudo apt-get install ntpdate  
-sudo apt-get install ntp  
+ln -sf /usr/share/zoneinfo/YOUR/TIME/ZONE /etc/localetime  
+hwclock --systohc --utc  
+pacman -S aur/ntpdate  
+ntpdate time.google.com  
 
 ### Настройка имени хост машины:  
+echo ROMPC > /etc/hostname  
 
 ### Настройка пароля root'a:  
+passwd  
+  
+mkinitcpio -p linux  
 
 ### Настройка загрузчика grub:  
+pacman -S grub  
+grub-install /dev/sda  
+grub-mkconfig -o /boot/grub/grub.cfg  
 
 ### Настройка networkmanager:  
+pacman -S networkmanager  
+systemctl start NetworkManager.service  
+systemctl enable NetworkManager.service  
 
 ### Reboot:  
 
 ### Настройка пользователя:  
-adduser username_1  
-usermod -aG sudo username_1  
-adduser username_2  
-usermod -aG sudo username_2  
+useradd -m -g users -G wheel username_1  
+passwd username_1  
+useradd -m -g users -G wheel username_2  
+passwd username_2  
+  
+*Разрешаем пользователям состоящим в группе wheel использовать sudo (расскоментировав следующие строки):*  
+>%wheel ALL=(ALL) ALL):  
+  
+EDITOR=vim visudo  
+  
+*Разрешаем pacman скачивать 32 битные библиотеки, редактируем файл /etc/pacman.conf (расскоментировав следующие строки):*  
+>[multilib]  
+Include = /etc/pacman.d/mirrorlist  
+  
 
 ### Установка и настройка основных пакетов:  
-sudo apt-get install curl  
-sudo apt-get install openssh  
-sudo apt-get install sshfs  
-sudo apt-get install sshpass  
+pacman -S openssh  
+pacman -S sshfs  
+pacman -S sshpass  
+pacman -S fail2ban  
 systemctl start sshd.service  
 systemctl enable sshd.service  
 ssh-keygen  
-sudo apt-get install fail2ban  
   
-sudo apt-get install git  
-sudo apt-get install vim  
-sudo apt-get install zsh  
+pacman -S curl  
+pacman -S wget  
+pacman -S git  
+pacman -S vim  
+pacman -S zsh  
 *Сменить bash на zsh в /etc/passwd*  
-sudo apt-get install tmux  
-sudo apt-get install xclip  
-sudo apt-get install htop  
+pacman -S tmux  
+pacman -S xclip  
+pacman -S htop  
   
-sudo apt-get install net-tools  
-sudo apt-get install wireguard  
+pacman -S go  
+  
+pacman -S net-tools  
+pacman -S whois  
+pacman -S nmap  
+pacman -S ufw  
+pacman -S tcpdump  
+pacman -S iperf  
+pacman -S wireless_tools  
+pacman -S wireguard-tools  
 *Настройка wg*  
-sudo apt-get install resolvconf  
+pacman -S openvpn  
+pacman -S resolvconf  
 
 ### Настройка хранилища:  
+mkdir -p /local/store/  
 chmod -R 777 /local/store/  
 chown -R username_1:username_1 /local/store/  
 cd /local/store/  
 mkdir git  
 
 ### Настройка YAY:  
+cd /local/store/git  
+git clone https://aur.archlinux.org/yay.git  
+cd ./yay/  
+makepkg -si  
 
 ### Настройка OH-MY-ZSH:  
 cd  
@@ -80,164 +178,144 @@ cd ./Settings/
 ./install_my_settings.sh  
 
 ### Настройка SAMBA:  
-pacman -S samba  
-cd /  
-sudo mkdir -p /samba/private  
-sudo chgrp users /samba/private  
-sudo smbpasswd -a user1  
-systemctl start smb.service  
-systemctl enable smb.service  
-  
-iptables -A INPUT -p tcp -m tcp --dport 445 –s 10.0.0.0/24 -j ACCEPT  
-iptables -A INPUT -p tcp -m tcp --dport 139 –s 10.0.0.0/24 -j ACCEPT  
-iptables -A INPUT -p udp -m udp --dport 137 –s 10.0.0.0/24 -j ACCEPT  
-iptables -A INPUT -p udp -m udp --dport 138 –s 10.0.0.0/24 -j ACCEPT  
-pacman -S iptables-persistent  
-iptables -L  
 
 ### Настройка GUI:  
-sudo apt-get install i3-wm  
-sudo apt-get install i3blocks  
-sudo apt-get install i3status  
-sudo apt-get install i3lock-fancy  
+pacman -S i3-gaps  
+pacman -S i3blocks  
+pacman -S i3status  
+pacman -S aur/i3lock-fancy-rapid-git  
 *Папка с настройками xorg /etc/X11/xorg.conf.d/*  
-*Установка темы*  
+pacman -S lxappearance  
+*Установка темы vimix-icon-theme vimix-gtk-themes*  
   
-sudo apt-get install rofi  
-sudo apt-get install dmenu  
-sudo apt-get install j4-dmenu-desktop  
-sudo apt-get install compton  
-sudo apt-get install feh  
+pacman -S rofi  
+pacman -S dmenu  
+pacman -S j4-dmenu-desktop  
+pacman -S picom  
+pacman -S feh  
   
-sudo apt-get install pavucontrol  
-sudo apt-get install pamixer  
+pacman -S alsa-utils  
+pacman -S alsa-plugins  
+pacman -S pavucontrol  
+pacman -S pamixer  
+pacman -S pulseaudio  
+pacman -S pulseaudio-alsa  
   
-sudo apt-get install fonts-font-awesome  
-sudo apt-get install fonts-powerline  
-sudo apt-get install fonts-hack  
-sudo apt-get install fonts-hack-otf  
-sudo apt-get install fonts-hack-ttf  
-sudo apt-get install fonts-hack-web  
-sudo apt-get install fonts-cantarell  
+pacman -S xorg-xinit  
+pacman -S xorg-server  
+pacman -S xorg-xset  
   
-sudo apt-get install neofetch  
-sudo apt-get install sl  
-sudo apt-get install scrot  
-*Скрипт установки или*  
-*sudo apt-get install xxkb*  
-sudo apt-get install pcmanfm  
-sudo add-apt-repository ppa:h-realh/roxterm  
-sudo apt-get update  
-sudo apt-get install roxterm  
-sudo apt-get install keepassxc  
+pacman -S oft-font-awesome  
+pacman -S ttf-font-awesome  
+pacman -S awesome-terminal-fonts  
+pacman -S powerline-fonts  
+  
+pacman -S neofetch  
+pacman -S sl  
+pacman -S scrot  
+pacman -S xxkb  
+!pacman -S aur/i3-xkb-switcher  
+pacman -S pcmanfm  
+pacman -S aur/roxterm  
+pacman -S firefox  
+pacman -S keepassxc  
 
 ### Настройка soft'a:  
-sudo apt-get install unrar  
-sudo apt-get install docker  
+pacman -S unrar  
+pacman -S unzip  
+pacman -S docker  
+pacman -S docker-compose  
 usermod -aG docker username_1  
+systemctl start docker.service  
+systemctl enable docker.service  
   
-sudo apt-get install lm-sensors  
+pacman -S ntfs-3g  
+pacman -S gvfs-mtp  
+pacman -S mtpfs  
+pacman -S libmtp *Монтирование устройств*  
+pacman -S gvfs-google  
+pacman -S gvfs-nfs  
+pacman -S gvfs-smb  
   
-sudo apt-get install vlc  
-sudo apt-get install pinta  
-sudo apt-get install simplescreenrecorder  
+!pacman -S aur/aria2c-daemon  
+pacman -S rsync  
+pacman -S acpi *Температура, Батарея*  
+pacman -S lshw  
+pacman -S usbutils  
+pacman -S nut  
   
-sudo apt-get install gedit-plugins  
-sudo apt-get install libreoffice  
+pacman -S blueman  
+pacman -S bluez  
+!pacman -S pulseaudio-modules-bt  
   
-sudo snap install telegram-desktop  
-sudo dpkg -i ./discord-0.0.27.deb  
-sudo apt-get install thunderbird  
+pacman -S aur/wpa_supplicant_gui  
+pacman -S network-manager-applet  
+  
+pacman -S cups  
+pacman -S system-config-printer  
+  
+pacman -S vlc  
+pacman -S mpc  
+pacman -S mpd  
+pacman -S ncmpc  
+pacman -S aur/cider  
+  
+pacman -S pinta  
+!pacman -S gimp  
+pacman -S aur/simplescreenrecorder  
+  
+pacman -S qrencode  
+pacman -S galculator  
+pacman -S evince *PDF*  
+pacman -S gedit  
+pacman -S gedit-plugins  
+!pacman -S libreoffice-fresh  
+  
+pacman -S telegram-desktop  
+pacman -S discord  
+pacman -S thunderbird  
   
 *Eclipse Установщик*  
-sudo apt-get install meld  
-sudo apt-get install wireshark-qt  
+pacman -S meld  
+pacman -S wireshark-qt  
 sudo chmod 755 /usr/bin/dumpcap  
   
-sudo apt-get install chirp  
+!pacman -S aur/chirp-next  
   
-sudo apt-get install golang  
-sudo apt-get install clang-format  
-sudo apt-get install clang-tidy  
-sudo apt-get install doxygen  
-sudo apt-get install doxygen-gui  
-sudo apt-get install python  
-sudo apt-get install python3  
-sudo apt-get install python3-pip  
-sudo apt-get install python3-venv  
-  
-sudo apt-get install mesa-vulkan-drivers  
-sudo apt-get install vulkan-utils  
-  
-sudo apt-get install libsystemd-dev  
-sudo apt-get install dh-autoreconf  
+pacman -S clang-format-all-git  
+pacman -S doxygen  
+pacman -S python  
+pacman -S python-pip  
 
 ### Настройка пакетов для работы:  
-sudo apt-get install virtualbox  
-sudo apt-get install minicom  
-sudo apt-get install tcpreplay  
-sudo apt-get install memstat  
+pacman -S virtualbox  
+!pacman -S linux-headers  
+!pacman -S virtualbox-host-dkms  
+!pacman -S virtualbox-guest-iso  
+!modprobe vboxdrv  
+pacman -S minicom  
+pacman -S net-snmp  
+pacman -S tcpreplay  
+pacman -S aur/memstat  
   
-sudo apt-get install freeradius  
-sudo apt-get install tacacs+  
-sudo apt-get install snmp  
-sudo apt-get install python-scapy  
-sudo apt-get install tftpd  
-sudo apt-get install tftp  
-sudo apt-get install xinetd *Для fttp*  
-sudo apt-get install nfs-kernel-server  
-sudo apt-get install nginx  
+pacman -S freeradius  
+pacman -S aur/tacacs-plus  
+pacman -S scapy  
+pacman -S python-scapy  
   
-*Mattermost Установщик*  
+pacman -S tftp-hpa  
+pacman -S nfs-utils  
+pacman -S nginx  
+  
+pacman -S mattermost-desktop  
+  
+!pacman -S aur/gns3-server  
+!pacman -S aur/gns3-gui  
+!pacman -S aur/ubridge  
+!pacman -S qemu  
+!pacman -S aur/dynamips  
 
 #### RDP  
-sudo apt-get install xrdp  
-sudo apt-get install xorgxrdp-hwe-18.04  
-*Добавить строчки в файл /etc/xrdp/startwm.sh:*  
-  
-*#test -x /etc/X11/Xsession && exec /etc/X11/Xsession*  
-*#exec /bin/sh /etc/X11/Xsession*  
-  
-*unset DBUS_SESSION_BUS_ADDRESS*  
-*#exec gnome-session*  
-*exec i3-gnome*  
-  
-*Возможные ошибки:*  
-*https://tokmakov.msk.ru/blog/item/454*  
-*http://c-nergy.be/blog/?p=14888*  
-  
-
-#### TFTP:  
-*Отредактировать /etc/xinetd.d/tftp:*  
-  
-*service tftp*  
-*{*  
-*protocol = udp*  
-*port = 69*  
-*socket_type = dgram*  
-*wait = yes*  
-*user = nobody*  
-*server = /usr/sbin/in.tftpd*  
-*server_args = /var/tftpboot*  
-*disable = no*  
-*}*  
-  
-*Создать каталог /var/tftpboot:*  
-sudo mkdir -p /var/tftpboot  
-sudo chmod -R 777 /var/tftpboot  
-
-#### NFS:  
-*Создать каталог /var/nfs:*  
-sudo mkdir -p /var/nfs  
-sudo chmod -R 777 /var/nfs  
-  
-*Отредактировать /etc/exports, добавив строку:*  
-  
-*/var/nfs *(rw,sync,insecure_locks,no_root_squash,no_subtree_check)*  
-  
-sudo service nfs-kernel-server restart  
-
-#### TimeLogger  
-*Скрипт установки*  
-
+pacman -S freerdp  
+pacman -S xrdp  
 

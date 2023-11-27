@@ -68,8 +68,7 @@ FONT=cyr-sun16
 ### Настройка времени:  
 ln -sf /usr/share/zoneinfo/YOUR/TIME/ZONE /etc/localetime  
 hwclock --systohc --utc  
-timedatectl set-timezone YOUR/TIME/ZONE  
-pacman -S ntpdate  
+pacman -S aur/ntpdate  
 ntpdate time.google.com  
 
 ### Настройка имени хост машины:  
@@ -77,9 +76,6 @@ echo HOMESERVER > /etc/hostname
 
 ### Настройка пароля root'a:  
 passwd  
-
-*В файл /etc/mkinitcpio.conf в поле HOOKS добавляем keymap:*  
->HOOKS="base udev … keymap"  
   
 mkinitcpio -p linux  
 
@@ -114,10 +110,15 @@ Include = /etc/pacman.d/mirrorlist
 
 ### Установка и настройка основных пакетов:  
 pacman -S openssh  
+pacman -S sshfs  
+pacman -S sshpass  
+pacman -S fail2ban  
 systemctl start sshd.service  
 systemctl enable sshd.service  
 ssh-keygen  
   
+pacman -S curl  
+pacman -S wget  
 pacman -S git  
 pacman -S vim  
 pacman -S zsh  
@@ -129,12 +130,19 @@ pacman -S htop
 pacman -S go  
   
 pacman -S net-tools  
+pacman -S whois  
+pacman -S nmap  
+pacman -S ufw  
+pacman -S tcpdump  
+pacman -S iperf  
 pacman -S wireless_tools  
-pacman -S extra/wireguard-tools  
+pacman -S wireguard-tools  
 *Настройка wg*  
 pacman -S openvpn  
+pacman -S resolvconf  
 
 ### Настройка хранилища:  
+mkdir -p /local/store/  
 chmod -R 777 /local/store/  
 chown -R username_1:username_1 /local/store/  
 cd /local/store/  
@@ -157,6 +165,7 @@ sudo cp -r ./ /usr/share/oh-my-zsh/
 *Темы и плагины*  
 
 ### Настройка github:  
+mkdir -p /local/store/git/  
 cd /local/store/git/  
 git clone https://github.com/romdegtyarev/Settings.git  
 cd ./Settings/  
@@ -179,68 +188,42 @@ pacman -S iptables-persistent
 iptables -L  
 
 ### Настройка GUI:  
-pacman -S i3-gaps  
-pacman -S i3blocks  
-pacman -S i3status  
-pacman -S i3lock-fancy *TODO: Замени i3lock на i3lock-fancy* 
-*Папка с настройками xorg /etc/X11/xorg.conf.d/*  
-  
-pacman -S rofi *TODO: Установи*  
-pacman -S dmenu *TODO: Установи*  
-pacman -S j4-dmenu-desktop *TODO: Установи*  
-pacman -S compton  
-pacman -S nitrogen  
-  
-pacman -S pavucontrol  
-pacman -S pamixer  
-  
-pacman -S xorg-xinit  
-pacman -S xorg-server  
-pacman -S xf86-video-nouveau  
-pacman -S xorg-xset  
-  
 pacman -S oft-font-awesome  
 pacman -S ttf-font-awesome  
 pacman -S awesome-terminal-fonts  
 pacman -S powerline-fonts  
   
 pacman -S neofetch  
-pacman -S scrot  
-pacman -S pcmanfm  
-pacman -S roxterm  
+pacman -S sl  
 
 ### Настройка soft'a:  
-pacman -S extra/unrar  
+pacman -S unrar  
+pacman -S unzip  
 pacman -S docker  
+pacman -S docker-compose  
 usermod -aG docker username_1  
 systemctl start docker.service  
 systemctl enable docker.service  
-pacman -S docker-compose  
   
 pacman -S ntfs-3g  
 pacman -S gvfs-mtp  
 pacman -S mtpfs  
 pacman -S libmtp *Монтирование устройств*  
+pacman -S gvfs-google  
+pacman -S gvfs-nfs  
+pacman -S gvfs-smb  
   
 pacman -S aur/aria2c-daemon  
 pacman -S rsync  
 pacman -S acpi *Температура, Батарея*  
-  
+pacman -S lshw  
+pacman -S usbutils  
+pacman -S nut  
 pacman -S minidlna  
-  
-pacman -S python-pip3  
-python3 -m venv pyvenv  
-source ./pyvenv/bin/activate  
-pip3 install pytelegrambotapi  
 pacman -S aur/dump1090-git  
-pacman -S wget  
+  
+pacman -S python-pip  
 
 ### Настройка пакетов для работы:  
 pacman -S freeradius  
-pacman -S extra/wireguard-tools  
-pacman -S extra/tcpdump  
-pacman -S community/iperf  
-pacman -S usbutils  
-pacman -S extra/nut  
-
 

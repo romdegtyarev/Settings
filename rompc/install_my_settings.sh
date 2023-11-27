@@ -18,7 +18,8 @@ sudo ln -s /local/store/git/Settings/common/i3/i3blocks /usr/lib/i3blocks
 
 # X11, GTK
 ln -s /local/store/git/Settings/common/X11/xinitrc ~/.xinitrc
-sudo ln -s /local/store/git/Settings/common/X11/keyboard /etc/default/keyboard
+sudo ln -s /local/store/git/Settings/common/X11/00-keyboard.conf /etc/X11/xorg.conf.d/00-keyboard.conf
+sudo ln -s /local/store/git/Settings/common/X11/10-monitor.conf /etc/X11/xorg.conf.d/10-monitor.conf
 
 ln -s /local/store/git/Settings/rompc/scripts/xmodmap.sh ~/xmodmap.sh
 
@@ -76,6 +77,7 @@ ssh-keygen -t rsa -b 4096
 ln -s /local/store/git/Settings/rompc/gitconfig ~/.gitconfig
 ln -s /local/store/git/Settings/common/vim/vimrc ~/.vimrc
 sudo ln -s /local/store/git/Settings/common/smb.conf /etc/samba/smb.conf
+sudo ln -s /local/store/git/Settings/common/pacman.conf /etc/pacman.conf
 ln -s /local/store/git/Settings/common/Pinta ~/.config/Pinta
 ln -s /local/store/git/Settings/common/rofi ~/.config/rofi
 ln -s /local/store/git/Settings/common/keepassxc ~/.config/keepassxc

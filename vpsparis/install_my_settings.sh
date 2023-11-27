@@ -22,8 +22,12 @@ sudo rm ssh_host_ecdsa_key*
 sudo rm ssh_host_key*
 sudo ln -s ssh_host_ecdsa_key ssh_host_ecdsa_key
 sudo ln -s ssh_host_key ssh_host_key
+
+cd /etc/ssh
 sudo rm ssh_host_dsa_key*
 sudo ln -s ssh_host_dsa_key ssh_host_dsa_key
+
+cd /etc/ssh
 sudo rm ssh_host_rsa_key*
 sudo ssh-keygen -t rsa -b 4096 -f ssh_host_rsa_key < /dev/null
 

@@ -30,7 +30,6 @@ adduser username_2
 usermod -aG sudo username_2  
 
 ### Установка и настройка основных пакетов:  
-sudo apt-get install curl  
 sudo apt-get install openssh  
 sudo apt-get install sshfs  
 sudo apt-get install sshpass  
@@ -38,6 +37,7 @@ systemctl start sshd.service
 systemctl enable sshd.service  
 ssh-keygen  
   
+sudo apt-get install curl  
 sudo apt-get install git  
 sudo apt-get install vim  
 sudo apt-get install zsh  
@@ -49,6 +49,7 @@ sudo apt-get install htop
 sudo apt-get install net-tools  
 
 ### Настройка хранилища:  
+mkdir -p /local/store/  
 chmod -R 777 /local/store/  
 chown -R username_1:username_1 /local/store/  
 cd /local/store/  
@@ -88,8 +89,6 @@ sudo apt-get install j4-dmenu-desktop
 sudo apt-get install compton  
   
 sudo apt-get install pavucontrol  
-*Скрипт установки или*  
-*sudo apt-get install pamixer*  
   
 sudo apt-get install xinit  
 sudo apt-get install xorg  
@@ -102,7 +101,6 @@ sudo apt-get install fonts-hack-web
 sudo apt-get install powerline  
 
 sudo apt-get install neofetch  
-  
 sudo apt-get install pcmanfm  
 sudo apt-get install roxterm  
 

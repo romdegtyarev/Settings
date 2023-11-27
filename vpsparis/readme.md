@@ -48,6 +48,8 @@ sudo ufw allow PORT
 mkdir -p /local/store/  
 chmod -R 777 /local/store/  
 chown -R username_1:username_1 /local/store/  
+cd /local/store/  
+mkdir git  
 
 ### Настройка YAY:  
 
@@ -59,6 +61,7 @@ sudo mkdir oh-my-zsh
 cd  
 cd .oh-my-zsh  
 sudo cp -r ./ /usr/share/oh-my-zsh/  
+*Темы и плагины*  
 
 ### Настройка github:  
 mkdir -p /local/store/git/  
@@ -84,6 +87,7 @@ sudo apt-get install docker-compose
 sudo usermod -aG docker username_1  
 sudo systemctl start docker.service  
 sudo systemctl enable docker.service  
+  
 *Настройка OPENVPN*  
 
 ### Настройка пакетов для работы:  
