@@ -34,7 +34,7 @@ bindsym Ctrl+$mod+e exec /opt/eclipse/eclipse/eclipse
 bindsym Ctrl+$mod+b exec firefox
 bindsym Ctrl+$mod+m exec thunderbird
 bindsym Ctrl+$mod+f exec telegram-desktop
-bindsym Ctrl+$mod+j exec /opt/mattermost-desktop/mattermost-desktop
+bindsym Ctrl+$mod+j exec mattermost-desktop
 bindsym Ctrl+$mod+t exec gedit
 bindsym Ctrl+$mod+v exec virtualbox
 
@@ -178,10 +178,10 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 # Enable border only when have more than one window
 hide_edge_borders smart
-#default_border pixel 1
-#default_floating_border none
-#gaps inner 5
-#gaps outer 5
+default_border pixel 1
+default_floating_border none
+gaps inner 5
+gaps outer 5
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -212,11 +212,12 @@ exec --no-startup-id xxkb &
 exec --no-startup-id feh --randomize --bg-fill ~/Pictures/Wallpapers/*
 exec --no-startup-id xset -b
 exec --no-startup-id numlock &
+exec_always --no-startup-id xkb-switch --i3
 #exec --no-startup-id touchpad-toggle.sh &
 
 # Custom shortcut
 # Lockscreen and suspend
-set $Locker i3lock-fancy
+set $Locker i3lock-fancy-rapid 1 15
 bindsym Ctrl+$mod+l exec --no-startup-id $Locker
 bindsym Ctrl+$mod+k exec --no-startup-id systemctl suspend
 

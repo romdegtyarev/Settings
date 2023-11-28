@@ -75,8 +75,9 @@ FONT=cyr-sun16
 ### Настройка времени:  
 ln -sf /usr/share/zoneinfo/YOUR/TIME/ZONE /etc/localetime  
 hwclock --systohc --utc  
-pacman -S aur/ntpdate  
-ntpdate time.google.com  
+pacman -S ntpdate  
+sudo systemctl start ntpd.service
+sudo systemctl enable ntpd.service
 
 ### Настройка имени хост машины:  
 echo ROMPC > /etc/hostname  
@@ -187,6 +188,12 @@ pacman -S aur/i3lock-fancy-rapid-git
 *Папка с настройками xorg /etc/X11/xorg.conf.d/*  
 pacman -S lxappearance  
 *Установка темы vimix-icon-theme vimix-gtk-themes*  
+pacman -S gtk2  
+pacman -S gtk3  
+pacman -S gtk4  
+pacman -S aur/gtk-theme-config  
+pacman -S webkit2gtk  
+pacman -S webkitgtk-6.0  
   
 pacman -S rofi  
 pacman -S dmenu  
@@ -214,7 +221,7 @@ pacman -S neofetch
 pacman -S sl  
 pacman -S scrot  
 pacman -S xxkb  
-pacman -S aur/i3-xkb-switcher  
+pacman -S aur/xkb-switch-i3  
 pacman -S pcmanfm  
 pacman -S aur/roxterm  
 pacman -S firefox  
@@ -243,6 +250,7 @@ pacman -S acpi *Температура, Батарея*
 pacman -S lshw  
 pacman -S usbutils  
 pacman -S nut  
+pacman -S upower  
   
 pacman -S blueman  
 pacman -S bluez  
@@ -250,6 +258,7 @@ pacman -S pulseaudio-bluetooth
   
 pacman -S aur/wpa_supplicant_gui  
 pacman -S network-manager-applet  
+pacman -S inetutils  
   
 pacman -S cups  
 pacman -S system-config-printer  
@@ -297,7 +306,7 @@ pacman -S tcpreplay
 pacman -S aur/memstat  
   
 pacman -S freeradius  
-pacman -S aur/tacacs-plus  
+docker pull lfkeitel/tacacs_plus  
 pacman -S scapy  
 pacman -S python-scapy  
   
