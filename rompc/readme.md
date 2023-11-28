@@ -214,7 +214,7 @@ pacman -S neofetch
 pacman -S sl  
 pacman -S scrot  
 pacman -S xxkb  
-!pacman -S aur/i3-xkb-switcher  
+pacman -S aur/i3-xkb-switcher  
 pacman -S pcmanfm  
 pacman -S aur/roxterm  
 pacman -S firefox  
@@ -237,7 +237,7 @@ pacman -S gvfs-google
 pacman -S gvfs-nfs  
 pacman -S gvfs-smb  
   
-!pacman -S aur/aria2c-daemon  
+pacman -S aur/aria2c-daemon  
 pacman -S rsync  
 pacman -S acpi *Температура, Батарея*  
 pacman -S lshw  
@@ -246,7 +246,7 @@ pacman -S nut
   
 pacman -S blueman  
 pacman -S bluez  
-!pacman -S pulseaudio-modules-bt  
+pacman -S pulseaudio-bluetooth  
   
 pacman -S aur/wpa_supplicant_gui  
 pacman -S network-manager-applet  
@@ -261,7 +261,7 @@ pacman -S ncmpc
 pacman -S aur/cider  
   
 pacman -S pinta  
-!pacman -S gimp  
+pacman -S gimp  
 pacman -S aur/simplescreenrecorder  
   
 pacman -S qrencode  
@@ -269,7 +269,7 @@ pacman -S galculator
 pacman -S evince *PDF*  
 pacman -S gedit  
 pacman -S gedit-plugins  
-!pacman -S libreoffice-fresh  
+pacman -S libreoffice-fresh  
   
 pacman -S telegram-desktop  
 pacman -S discord  
@@ -280,7 +280,7 @@ pacman -S meld
 pacman -S wireshark-qt  
 sudo chmod 755 /usr/bin/dumpcap  
   
-!pacman -S aur/chirp-next  
+pacman -S aur/chirp-next  
   
 pacman -S clang-format-all-git  
 pacman -S doxygen  
@@ -289,10 +289,8 @@ pacman -S python-pip
 
 ### Настройка пакетов для работы:  
 pacman -S virtualbox  
-!pacman -S linux-headers  
-!pacman -S virtualbox-host-dkms  
-!pacman -S virtualbox-guest-iso  
-!modprobe vboxdrv  
+pacman -S virtualbox-host-dkms  
+pacman -S virtualbox-guest-iso  
 pacman -S minicom  
 pacman -S net-snmp  
 pacman -S tcpreplay  
@@ -309,11 +307,11 @@ pacman -S nginx
   
 pacman -S mattermost-desktop  
   
-!pacman -S aur/gns3-server  
-!pacman -S aur/gns3-gui  
-!pacman -S aur/ubridge  
-!pacman -S qemu  
-!pacman -S aur/dynamips  
+pacman -S aur/gns3-server  
+pacman -S aur/gns3-gui  
+pacman -S aur/ubridge  
+pacman -S qemu  
+pacman -S aur/dynamips  
 
 #### RDP  
 pacman -S freerdp  
