@@ -295,6 +295,9 @@ pacman -S clang-format-all-git
 pacman -S doxygen  
 pacman -S python  
 pacman -S python-pip  
+pacman -S aur/rpmlint  
+pacman -S man-db  
+pacman -S man-pages  
 
 ### Настройка пакетов для работы:  
 pacman -S virtualbox  
