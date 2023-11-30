@@ -184,7 +184,7 @@ cd ./Settings/
 pacman -S i3-gaps  
 pacman -S i3blocks  
 pacman -S i3status  
-pacman -S aur/i3lock-fancy-rapid-git  
+pacman -S aur/i3lock-color  
 *Папка с настройками xorg /etc/X11/xorg.conf.d/*  
 pacman -S lxappearance  
 *Установка темы vimix-icon-theme vimix-gtk-themes*  
@@ -316,6 +316,7 @@ pacman -S python-scapy
 pacman -S tftp-hpa  
 pacman -S nfs-utils  
 pacman -S nginx  
+pacman -S haproxy  
   
 pacman -S mattermost-desktop  
   
