@@ -217,7 +217,7 @@ exec_always --no-startup-id xkb-switch --i3
 
 # Custom shortcut
 # Lockscreen and suspend
-set $Locker i3lock-fancy-rapid 1 15
+set $Locker /local/store/git/Settings/common/scripts/lock.sh
 bindsym Ctrl+$mod+l exec --no-startup-id $Locker
 bindsym Ctrl+$mod+k exec --no-startup-id systemctl suspend
 
