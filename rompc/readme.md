@@ -291,6 +291,7 @@ sudo chmod 755 /usr/bin/dumpcap
   
 pacman -S aur/chirp-next  
   
+pacman -S gdb  
 pacman -S clang-format-all-git  
 pacman -S doxygen  
 pacman -S python  
@@ -306,6 +307,7 @@ pacman -S virtualbox-guest-iso
 pacman -S minicom  
 pacman -S net-snmp  
 pacman -S tcpreplay  
+pacman -S socat  
 pacman -S aur/memstat  
   
 pacman -S freeradius  
