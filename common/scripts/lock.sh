@@ -7,6 +7,10 @@ TEXT='#ffee00e6'
 WRONG='#ff0008f4'
 VERIFYING='#1eff00f4'
 
+# Pause notifications
+dunstctl set-paused true
+
+# Enable the lock screen
 i3lock \
 --insidever-color=$CLEAR     \
 --ringver-color=$VERIFYING   \
@@ -42,3 +46,7 @@ i3lock \
 --noinput-text="Type?"                   \
 --lock-text="Get Out From My PC"         \
 --lockfailed-text="Lock failed!"
+
+# Restore notifications
+dunstctl set-paused false
+
