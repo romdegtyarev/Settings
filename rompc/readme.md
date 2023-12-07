@@ -194,6 +194,10 @@ pacman -S gtk4
 pacman -S aur/gtk-theme-config  
 pacman -S webkit2gtk  
 pacman -S webkitgtk-6.0  
+pacman -S lx-qt-themes
+pacman -S qt5-styleplugins  
+pacman -S qt6gtk2  
+pacman -S dunst  
   
 pacman -S rofi  
 pacman -S dmenu  
@@ -299,6 +303,7 @@ pacman -S python-pip
 pacman -S aur/rpmlint  
 pacman -S man-db  
 pacman -S man-pages  
+pacman -S korganaizer  
 
 ### Настройка пакетов для работы:  
 pacman -S virtualbox  

@@ -30,7 +30,7 @@ floating_modifier $mod
 # Start programs
 bindsym Ctrl+Mod1+t exec roxterm
 bindsym Ctrl+$mod+n exec pcmanfm
-bindsym Ctrl+$mod+e exec /opt/eclipse/eclipse/eclipse
+bindsym Ctrl+$mod+e exec eclipse
 bindsym Ctrl+$mod+b exec firefox
 bindsym Ctrl+$mod+m exec thunderbird
 bindsym Ctrl+$mod+f exec telegram-desktop
@@ -208,7 +208,7 @@ bar {
 
 # Custom autostart
 exec --no-startup-id xset -b
-exec --no-startup-id compton
+exec --no-startup-id picom
 exec --no-startup-id feh --randomize --bg-fill ~/Pictures/Wallpapers/*
 exec --no-startup-id xkb-switch --i3
 exec --no-startup-id dunst

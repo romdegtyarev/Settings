@@ -12,6 +12,6 @@ _DATE_ () {
 _DATE_
 
 case "$BLOCK_BUTTON" in
-    1) exec gnome-calendar ;;
+    1) exec korganizer ;;
 esac
 

@@ -13,6 +13,6 @@ _MEM_ () {
 _MEM_
 
 case "$BLOCK_BUTTON" in
-    1) exec gnome-logs ;;
+    1) ;;
 esac
 

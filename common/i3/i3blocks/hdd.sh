@@ -12,6 +12,6 @@ _DISK_ () {
 _DISK_ "$1"
 
 case "$BLOCK_BUTTON" in
-    1) exec gnome-disks ;;
+    1) ;;
 esac
 

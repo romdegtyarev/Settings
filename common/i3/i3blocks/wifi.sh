@@ -16,6 +16,6 @@ _WIFI_ () {
 _WIFI_
 
 case "$BLOCK_BUTTON" in
-    1) ;;
+    1) nm-applet ;;
 esac
 

@@ -17,6 +17,6 @@ _ETH_ () {
 _ETH_
 
 case "$BLOCK_BUTTON" in
-    1) exec gnome-nettool ;;
+    1) exec nm-applet ;;
 esac
 
