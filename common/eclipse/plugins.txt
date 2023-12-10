@@ -1,0 +1,9 @@
+Bash Editor
+Darkest Dark Theme with DevStyle
+Eclipse C/C++
+Eclipse Color Theme
+Eclipse Docker Tooling
+EGit
+Mylyn WikiText
+Wild Web Developer
+Yaml Editor
