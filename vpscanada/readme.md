@@ -1,5 +1,5 @@
 # Система:  
-Ubuntu 22.04.1 LTS x86_64  
+Debian GNU/Linux 12 (bookworm) x86_64
 
 # Before start:  
 
@@ -30,11 +30,7 @@ adduser username_2
 usermod -aG sudo username_2  
 
 ### Установка и настройка основных пакетов:  
-sudo apt-get install openssh  
 sudo apt-get install fail2ban  
-systemctl start sshd.service  
-systemctl enable sshd.service  
-ssh-keygen  
   
 sudo apt-get install git  
 sudo apt-get install vim  
@@ -45,7 +41,8 @@ sudo apt-get install xclip
 sudo apt-get install htop  
   
 sudo apt-get install wireguard  
-*Настройка wg*  
+-*Настройка wg*  
+-sudo ufw allow PORT
 
 ### Настройка хранилища:  
 mkdir -p /local/store/  
@@ -83,7 +80,7 @@ sudo apt-get install powerline
 sudo apt-get install neofetch  
 
 ### Настройка soft'a:  
-sudo apt-get install unrar  
+sudo apt-get install unrar-free  
 sudo apt-get install docker  
 sudo apt-get install docker.io  
 sudo apt-get install docker-compose  
@@ -91,9 +88,9 @@ sudo usermod -aG docker username_1
 sudo systemctl start docker.service  
 sudo systemctl enable docker.service  
   
-sudo apt-get install rsync  
-sudo apt-get install apache2-utils  
+
 
 ### Настройка пакетов для работы:  
 sudo apt-get install freeradius  
+
 
