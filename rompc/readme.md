@@ -283,6 +283,9 @@ pacman -S evince *PDF*
 pacman -S gedit  
 pacman -S gedit-plugins  
 pacman -S libreoffice-fresh  
+pacman -S jq  
+pacman -S gnome-calculator  
+pacman -S gitlab-runner  
   
 pacman -S telegram-desktop  
 pacman -S discord  

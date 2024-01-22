@@ -41,8 +41,8 @@ sudo apt-get install xclip
 sudo apt-get install htop  
   
 sudo apt-get install wireguard  
--*Настройка wg*  
--sudo ufw allow PORT
+*Настройка wg*  
+sudo ufw allow PORT
 
 ### Настройка хранилища:  
 mkdir -p /local/store/  
