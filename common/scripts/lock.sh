@@ -12,6 +12,7 @@ dunstctl set-paused true
 
 # Enable the lock screen
 i3lock \
+--nofork                     \
 --insidever-color=$CLEAR     \
 --ringver-color=$VERIFYING   \
 \
