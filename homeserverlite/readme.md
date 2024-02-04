@@ -5,7 +5,11 @@ Arch Linux x86_64
 1. Загружаемся с загрузочной флешки  
 
 2. Создаем разделы:  
-/* TODO */
+Device        Start       End   Sectors   Size Type  
+/dev/sda1      2048   1050623   1048576   512M EFI System  
+/dev/sda2   1050624  34605055  33554432    16G Linux filesystem  
+/dev/sda3  34605056  97519615  62914560    30G Linux filesystem  
+/dev/sda4  97519616 976773119 879253504 419.3G Linux filesystem  
 
 4. Форматируем разделы:  
 mkswap /dev/sda2  

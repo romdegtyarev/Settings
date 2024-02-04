@@ -12,9 +12,8 @@ ln -s /local/store/git/Settings/common/tmux/tmux.conf ~/.tmux.conf
 
 # i3wm
 ln -s /local/store/git/Settings/common/i3/config ~/.config/i3/config
-ln -s /local/store/git/Settings/rompc/i3/i3blocks.conf ~/.config/i3/i3blocks.conf
+ln -s /local/store/git/Settings/common/i3/i3blocks.conf ~/.config/i3/i3blocks.conf
 sudo ln -s /local/store/git/Settings/common/i3/i3blocks /usr/lib/i3blocks
-TODO
 # Theme install
 
 # X11, GTK
@@ -38,7 +37,6 @@ ln -s /local/store/git/Settings/common/pcmanfm ~/.config/pcmanfm
 
 # Apps
 #SSH
-TODO
 sudo cp /local/store/git/Settings/common/ssh/sshd_config /etc/ssh/sshd_config
 sudo cp /local/store/git/Settings/common/ssh/ssh_config /etc/ssh/ssh_config
 # See common/ssh/help.txt
@@ -65,7 +63,7 @@ sudo ssh-keygen -t rsa -b 4096 -f ssh_host_rsa_key < /dev/null
 ssh-keygen -t ed25519
 ssh-keygen -t rsa -b 4096
 
-ln -s /local/store/git/Settings/rompc/gitconfig ~/.gitconfig
+ln -s /local/store/git/Settings/common/gitconfig ~/.gitconfig
 ln -s /local/store/git/Settings/common/vim/vimrc ~/.vimrc
 sudo ln -s /local/store/git/Settings/common/pacman.conf /etc/pacman.conf
 ln -s /local/store/git/Settings/common/Pinta ~/.config/Pinta
