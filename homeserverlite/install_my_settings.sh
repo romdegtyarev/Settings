@@ -22,6 +22,9 @@ sudo ln -s /local/store/git/Settings/common/X11/00-keyboard.conf /etc/X11/xorg.c
 sudo ln -s /local/store/git/Settings/common/X11/10-monitor.conf /etc/X11/xorg.conf.d/10-monitor.conf
 
 ln -s /local/store/git/Settings/common/gtk-bookmarks ~/.gtk-bookmarks
+
+ln -s /local/store/git/Settings/common/gtk-2.0 ~/.config/gtk-2.0
+ln -s /local/store/git/Settings/rompc/gtk-3.0/bookmarks ~/.config/gtk-3.0/bookmarks
 ln -s /local/store/git/Settings/common/user-dirs.dirs ~/.config/user-dirs.dirs
 ln -s /local/store/git/Settings/common/user-dirs.locale ~/.config/user-dirs.locale
 
@@ -66,6 +69,7 @@ ssh-keygen -t rsa -b 4096
 ln -s /local/store/git/Settings/common/gitconfig ~/.gitconfig
 ln -s /local/store/git/Settings/common/vim/vimrc ~/.vimrc
 sudo ln -s /local/store/git/Settings/common/pacman.conf /etc/pacman.conf
+sudo ln -s /local/store/git/Settings/homeserver/minidlna.conf /etc/minidlna.conf
 ln -s /local/store/git/Settings/common/Pinta ~/.config/Pinta
 ln -s /local/store/git/Settings/common/rofi ~/.config/rofi
 ln -s /local/store/git/Settings/common/keepassxc ~/.config/keepassxc
