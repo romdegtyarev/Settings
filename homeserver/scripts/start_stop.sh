@@ -18,7 +18,16 @@ then
     sudo systemctl restart minidlna.service
     timedatectl set-timezone Asia/Novosibirsk
     sudo ntpdate time.google.com
-    sudo upsdrvctl start
+    echo "sudo nut-scanner -U"
+    echo "sudo vim /etc/nut/ups.conf"
+    echo "sudo upsdrvctl stop"
+    echo "sudo upsdrvctl start"
+    echo "sudo systemctl start nut-server.service"
+    echo "sudo systemctl start nut-monitor.service"
+    echo "cd ~/apps/fiagetapi"
+    echo "docker-compose up -d"
+    echo "cd ~/apps/vultrapi"
+    echo "docker-compose up -d"
 
 elif [[ $mode == "Stop" ]]
 then
