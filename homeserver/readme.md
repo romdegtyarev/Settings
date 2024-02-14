@@ -224,6 +224,11 @@ pacman -S aur/dump1090-git
   
 pacman -S python-pip  
 
+pacman -S prometheus-node-exporter  
+pacman -S prometheus-blackbox-exporter  
+pacman -S prometheus  
+pacman -S grafana  
+
 ### Настройка пакетов для работы:  
 pacman -S freeradius  
 
