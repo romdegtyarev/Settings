@@ -140,6 +140,7 @@ pacman -S wireguard-tools
 *Настройка wg*  
 pacman -S openvpn  
 pacman -S resolvconf  
+pacman -S openconnect  
 
 ### Настройка хранилища:  
 mkdir -p /local/store/  

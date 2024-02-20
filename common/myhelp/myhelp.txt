@@ -535,6 +535,12 @@ systemctl restart wg-quick@wg0.service
 dd bs=4M if=path/to/archlinux-version-x86_64.iso of=/dev/sdx conv=fsync oflag=direct status=progress
 ----------
 
+Настройка ocserv :
+----------
+Просмотр пользователей
+sudo occtl show users
+----------
+
 
 
 
