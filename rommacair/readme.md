@@ -5,4 +5,6 @@ MAC OS
 brew install tmux  
 brew install xclip  
 brew install powerline-go  
+brew install openconnect-gui  
+brew install remoteviewer  
 
