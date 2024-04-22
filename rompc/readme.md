@@ -226,6 +226,7 @@ pacman -S sl
 pacman -S scrot  
 pacman -S xxkb  
 pacman -S aur/xkb-switch-i3  
+pacman -S xautolock  
 pacman -S pcmanfm  
 pacman -S aur/roxterm  
 pacman -S firefox  
@@ -258,6 +259,8 @@ pacman -S upower
   
 pacman -S blueman  
 pacman -S bluez  
+pacman -S bluez-utils  
+pacman -S  bluez-qt5  
 pacman -S pulseaudio-bluetooth  
   
 pacman -S aur/wpa_supplicant_gui  
