@@ -214,7 +214,7 @@ exec --no-startup-id xset -b
 exec --no-startup-id compton
 exec --no-startup-id feh --randomize --bg-fill ~/Pictures/Wallpapers/*
 exec --no-startup-id xkb-switch --i3
-#exec --no-startup-id dunst
+exec --no-startup-id dunst
 exec --no-startup-id xautolock -time 30 -locker $Locker -detectsleep -corners '++--' -cornerdelay 5 -notify 5 -notifier $LockerNotif
 exec_always --no-startup-id xrandr --output Virtual-1 --auto
 exec --no-startup-id spice-vdagent
