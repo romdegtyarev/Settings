@@ -147,6 +147,9 @@ pacman -S wireguard-tools
 *Настройка wg*  
 pacman -S openvpn  
 pacman -S resolvconf  
+pacman -S openconnect  
+pacman -S aur/openconnect-gui  
+pacman -S networkmanager-openconnect  
 
 ### Настройка хранилища:  
 mkdir -p /local/store/  
@@ -211,6 +214,9 @@ pacman -S pavucontrol
 pacman -S pamixer  
 pacman -S pulseaudio  
 pacman -S pulseaudio-alsa  
+pacman -S pipewire  
+pacman -S pipewire-audio  
+pacman -S pipewire-pulse  
   
 pacman -S xorg-xinit  
 pacman -S xorg-server  
@@ -275,6 +281,7 @@ pacman -S mpc
 pacman -S mpd  
 pacman -S ncmpc  
 pacman -S aur/cider  
+pacman -S spotify-launcher  
   
 pacman -S pinta  
 pacman -S gimp  
@@ -283,6 +290,8 @@ pacman -S aur/simplescreenrecorder
 pacman -S qrencode  
 pacman -S galculator  
 pacman -S evince *PDF*  
+pacman -S aur/drawio  
+pacman -S aur/drawio-desktop  
 pacman -S gedit  
 pacman -S gedit-plugins  
 pacman -S libreoffice-fresh  
