@@ -17,6 +17,6 @@ _ETH_ () {
 _ETH_
 
 case "$BLOCK_BUTTON" in
-    1) exec nm-applet ;;
+    1) exec nm-connection-editor ;;
 esac
 
