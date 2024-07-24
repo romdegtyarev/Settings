@@ -13,3 +13,5 @@
 	datellog = log --graph --all --pretty=format:\"%C(yellow)%h%C(auto)%d%C(reset) %s %C(bold green)(%cr) %C(bold blue)<%an>%C(reset)\"
 [push]
 	default = simple
+[safe]
+	directory = /samba/private/ROM/Docs/keys/keys.git
