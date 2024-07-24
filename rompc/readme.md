@@ -241,6 +241,8 @@ pacman -S keepassxc
 ### Настройка soft'a:  
 pacman -S unrar  
 pacman -S unzip  
+pacman -S zip  
+pacman -S extra/libzip  
 pacman -S docker  
 pacman -S docker-compose  
 usermod -aG docker username_1  
@@ -275,6 +277,7 @@ pacman -S inetutils
   
 pacman -S cups  
 pacman -S system-config-printer  
+pacman -S aur/xerox-phaser-3020  
   
 pacman -S vlc  
 pacman -S mpc  
@@ -301,6 +304,7 @@ pacman -S gitlab-runner
   
 pacman -S telegram-desktop  
 pacman -S discord  
+pacman -S d aur/zoom  
 pacman -S thunderbird  
   
 *Eclipse Установщик*  
