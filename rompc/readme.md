@@ -351,6 +351,7 @@ pacman -S aur/gns3-gui
 pacman -S aur/ubridge  
 pacman -S qemu  
 pacman -S aur/dynamips  
+pacman -S virt-viewer  
 
 #### RDP  
 pacman -S freerdp  

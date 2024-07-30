@@ -133,9 +133,11 @@ pacman -S tcpdump
 pacman -S iperf  
 pacman -S wireless_tools  
 pacman -S wireguard-tools  
-*Настройка wg*  
 pacman -S openvpn  
 pacman -S resolvconf  
+pacman -S openconnect  
+pacman -S aur/openconnect-gui  
+pacman -S networkmanager-openconnect  
 
 ### Настройка хранилища:  
 mkdir -p /local/store/  
@@ -186,6 +188,7 @@ pacman -S webkitgtk-6.0
 pacman -S lxqt-themes
 pacman -S aur/qt5-styleplugins  
 pacman -S aur/qt6gtk2  
+
 
 pacman -S dunst  
   
@@ -274,7 +277,9 @@ pacman -S jq
 pacman -S gnome-calculator  
 pacman -S gitlab-runner  
   
+pacman -S telegram-desktop  
 pacman -S discord  
+pacman -S d aur/zoom  
   
 pacman -S wireshark-qt  
 sudo chmod 755 /usr/bin/dumpcap  
@@ -289,4 +294,6 @@ pacman -S man-db
 pacman -S man-pages  
 pacman -S korganizer  
 pacman -S minidlna  
+  
+pacman -S virt-viewer  
 
