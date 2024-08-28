@@ -226,6 +226,7 @@ pacman -S oft-font-awesome
 pacman -S ttf-font-awesome  
 pacman -S awesome-terminal-fonts  
 pacman -S powerline-fonts  
+pacman -S aur/noto-color-emoji-fontconfig  
   
 pacman -S neofetch  
 pacman -S sl  
@@ -285,6 +286,7 @@ pacman -S mpd
 pacman -S ncmpc  
 pacman -S aur/cider  
 pacman -S spotify-launcher  
+pacman -S playerctl  
   
 pacman -S pinta  
 pacman -S gimp  
