@@ -1,22 +1,21 @@
 #!/bin/bash
 
-VAL=$(xset -q | grep LED | cut -d ':' -f 4)
+LAYOUT_INFO=$(xkblayout-state print "%s(%e)")
+LAYOUT=$(echo "$LAYOUT_INFO" | cut -d' ' -f1)
+CODE=$(echo "$LAYOUT_INFO" | cut -d'(' -f1)
 
-case $VAL in
-    *"00000000"*)
-        echo "En  "
+case $CODE in
+    "us")
+        echo "🇺🇸  "
         ;;
-    *"00000002"*)
-        echo "En  "
+    "ru")
+        echo "🇷🇺  "
         ;;
-    *"00001000"*)
-        echo "Ru  "
-        ;;
-    *"00001002"*)
-        echo "Ru  "
+    "fr")
+        echo "🇫🇷  "
         ;;
     *)
-        echo $VAL
+        echo "$LAYOUT_INFO"
         echo
         echo '#FF0000'
         ;;
