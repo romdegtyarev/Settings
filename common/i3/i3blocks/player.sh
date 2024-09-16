@@ -15,5 +15,6 @@ _MPD_ () {
     fi
 }
 
-_MPD_
+#_MPD_
+playerctl metadata --format '{{ emoji(status) }} {{ artist }} - {{ title }}'
 
