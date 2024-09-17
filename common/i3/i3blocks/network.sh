@@ -2,21 +2,25 @@
 
 # Show ETH info; ip; connected name
 _ETH_ () {
+    local interface=$1
+    local icon_on="🟢"
+    local icon_off="🔴"
 
-    icon=""
+    local ip=$(ifconfig "$interface" | awk '/inet /{print $2}' | cut -d: -f2)
+    local interface_name=$(echo "$interface" | sed 's/^[^0-9]*//')
 
-    W_IP=$(ifconfig enp3s0 | awk '/inet /{print $2}' | cut -d: -f2);
-    W_IP_2=$(ifconfig enp2s0 | awk '/inet /{print $2}' | cut -d: -f2);
-    W_IP_3=$(ifconfig enp0s20u7 | awk '/inet /{print $2}' | cut -d: -f2);
-
-    if [[ $W_IP || $W_IP_2 || $W_IP_3 ]]; then
-        echo "$icon 3:$W_IP 2:$W_IP_2 U:$W_IP_3 "
+    if [[ -n $ip ]]; then
+        echo "$interface_name: $icon_on "
     else
-        echo "$icon NOT  "
+        echo "$interface_name: $icon_off "
     fi
 }
 
-_ETH_
+output=""
+output+=$(_ETH_ "enp3s0")
+output+=$(_ETH_ "enp2s0")
+output+=$(_ETH_ "enp0s20u7")
+echo "$output"
 
 case "$BLOCK_BUTTON" in
     1) exec nm-connection-editor ;;

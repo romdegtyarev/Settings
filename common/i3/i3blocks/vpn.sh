@@ -1,20 +1,34 @@
 #!/bin/bash
 
-# Show ETH info; ip; connected name
-_ETH_ () {
+icon_on="🟢"
+icon_off="🔴"
 
-    icon=""
+# Show VPN info; ip; connected name
+_VPN_ () {
+    local interface=$1
 
-    W_IP=$(ifconfig wg0 | awk '/inet /{print $2}' | cut -d: -f2);
+    local ip=$(ifconfig "$interface" | awk '/inet /{print $2}' | cut -d: -f2)
 
-    if [[ $W_IP ]]; then
-        echo "$icon On "
+    if [[ -n $ip ]]; then
+        echo "VPN $icon_on "
     else
-        echo "$icon Off  "
+        echo "VPN $icon_off "
     fi
 }
 
-_ETH_
+output=""
+vpn_found=false
+for interface in $(ip link show | awk -F': ' '{print $2}'); do
+    if [[ $interface == tun* || $interface == tap* || $interface == wg* ]]; then
+        output+=$(_VPN_ "$interface")
+        vpn_found=true
+    fi
+done
+if [[ $vpn_found == false ]]; then
+    echo "VPN $icon_off "
+else
+    echo "$output"
+fi
 
 case "$BLOCK_BUTTON" in
     1) exec nm-connection-editor ;;

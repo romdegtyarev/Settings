@@ -77,6 +77,12 @@ ln -s /local/store/git/Settings/common/rofi ~/.config/rofi
 ln -s /local/store/git/Settings/common/keepassxc ~/.config/keepassxc
 ln -s /local/store/git/Settings/rompc/minirc.dfl ~/.minirc.dfl
 
+#Add i3 scripts
+sudo cp /local/store/git/system_info_daemon.service /etc/systemd/system/
+sudo cp /local/store/git/system_info_daemon.sh /usr/local/bin/
+sudo systemctl start system_info_daemon.service
+sudo systemctl enable system_info_daemon.service
+
 # For root
 sudo ln -s /local/store/git/Settings/common/zsh/bashrc /root/.bashrc
 sudo ln -s /local/store/git/Settings/common/vim/vimrc /root/.vimrc

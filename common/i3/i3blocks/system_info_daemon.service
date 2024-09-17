@@ -1,0 +1,12 @@
+[Unit]
+Description=System Info Daemon
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/system_info_daemon.sh
+Restart=always
+Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+[Install]
+WantedBy=multi-user.target
+
