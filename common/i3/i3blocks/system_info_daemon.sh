@@ -28,7 +28,6 @@ index=0
 
 while true; do
     index=$(( (index + 1) % ${#functions[@]} ))
-    sleep 10
     {
         ${functions[$index]}
     } | nc -l -p $PORT

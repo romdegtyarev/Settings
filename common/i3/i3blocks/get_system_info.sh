@@ -8,7 +8,7 @@ PORT=12345
 response=$(echo "request" | nc --close $SERVER $PORT)
 
 if [[ ! "$response" == *""* && ! "$response" == *""* && ! "$response" == *""* ]]; then
-    echo "⚠️ "
+    echo " ⚠️ "
     exit 1
 fi
 
