@@ -102,6 +102,7 @@ alias sysupdate='sudo pacman -Syyu'
 alias pingg='ping 8.8.8.8'
 alias wgup='sudo wg-quick up wg0'
 alias wgdown='sudo wg-quick down wg0'
+alias tftpupdate='/srv/tftp/update'
 
 #COPY LIKE MC
 alias cpr='cp -t $(tmux run-shell -b -t right "echo -n #{pane_current_path} > /tmp/tmp_path_on_pane" && sleep 0.01; cat /tmp/tmp_path_on_pane)'
