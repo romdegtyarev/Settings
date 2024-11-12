@@ -3,7 +3,11 @@
 _NUPHY_ () {
     icon=""
     per_cent=$(upower -i /org/freedesktop/UPower/devices/keyboard_dev_DE_50_E1_96_7B_C9 | grep percentage: | awk '{print $NF}');
-    echo "$icon  $per_cent  "
+    if [[ "$per_cent" == *%* ]]; then
+        echo "$icon  $per_cent  "
+    else
+        echo "$icon NC "
+    fi
 }
 
 _NUPHY_
