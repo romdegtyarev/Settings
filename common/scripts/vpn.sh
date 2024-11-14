@@ -19,6 +19,29 @@ for cmd in ip iptables openconnect; do
     fi
 done
 
+
+# Проверка параметров
+if [ "$1" == "down" ]; then
+    echo "Отключение VPN и очистка ресурсов..."
+
+    # Завершение процессов в пространстве имен
+    sudo ip netns pids vpnspace | xargs -rd'\n' sudo kill
+    sudo rm -rf /etc/netns/vpnspace
+
+    # Удаление правил iptables
+    sudo iptables -t nat -D POSTROUTING -o $LINUXUPLINK -j MASQUERADE
+    sudo iptables -D FORWARD -i $LINUXUPLINK -o veth0 -j ACCEPT
+    sudo iptables -D FORWARD -i veth0 -o $LINUXUPLINK -j ACCEPT
+
+    # Удаление виртуального интерфейса и пространства имен
+    sudo ip link del veth0
+    sudo ip netns delete vpnspace
+
+    echo "Скрипт завершен."
+    exit 0
+fi
+
+
 echo "Проверка существования пространства имен."
 # Проверка существования пространства имен
 if sudo ip netns list | grep "vpnspace"; then
@@ -50,6 +73,8 @@ else
     sudo iptables -t nat -A POSTROUTING -o $LINUXUPLINK -j MASQUERADE
     sudo iptables -A FORWARD -i $LINUXUPLINK -o veth0 -j ACCEPT
     sudo iptables -A FORWARD -i veth0 -o $LINUXUPLINK -j ACCEPT
+    sudo mkdir -p /etc/netns/vpnspace
+    echo "nameserver 8.8.8.8" |sudo tee /etc/netns/vpnspace/resolv.conf
 fi
 
 # Проверка наличия интерфейса VPN
