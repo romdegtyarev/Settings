@@ -5,7 +5,9 @@ Arch Linux x86_64
 1. Загружаемся с загрузочной флешки  
 
 2. Создаем разделы:  
-TODO
+parted /dev/sda
+*Для просмотра текущих разделов можно использовать команду:*
+print
 
 4. Форматируем разделы:  
 mkswap /dev/sda2  
@@ -104,7 +106,6 @@ pacman -S sshpass
 pacman -S fail2ban  
 systemctl start sshd.service  
 systemctl enable sshd.service  
-ssh-keygen TODO  
   
 pacman -S curl  
 pacman -S wget  
@@ -151,7 +152,6 @@ sudo mkdir oh-my-zsh
 cd  
 cd .oh-my-zsh  
 sudo cp -r ./ /usr/share/oh-my-zsh/  
-*Темы и плагины* TODO  
 
 ### Настройка github:  
 mkdir -p /local/store/git/  
@@ -166,19 +166,19 @@ cd ./Settings/
 pacman -S i3-gaps  
 pacman -S i3blocks  
 pacman -S i3status  
-pacman -S aur/i3lock-color TODO  
-*Папка с настройками xorg /etc/X11/xorg.conf.d/* TODO  
+pacman -S aur/i3lock-color  
+
 pacman -S lxappearance  
-*Установка темы vimix-icon-theme vimix-gtk-themes* TODO  
 pacman -S gtk2  
+
 pacman -S gtk3  
 pacman -S gtk4  
-pacman -S aur/gtk-theme-config TODO  
+pacman -S aur/gtk-theme-config  
 pacman -S webkit2gtk  
 pacman -S webkitgtk-6.0  
 pacman -S lxqt-themes
-pacman -S aur/qt5-styleplugins TODO  
-pacman -S aur/qt6gtk2 TODO  
+pacman -S aur/qt5-styleplugins  
+pacman -S aur/qt6gtk2  
 
 
 pacman -S dunst  
@@ -209,9 +209,9 @@ pacman -S neofetch
 pacman -S sl  
 pacman -S scrot  
 pacman -S xxkb  
-pacman -S aur/xkb-switch-i3 TODO  
+pacman -S aur/xkb-switch-i3  
 pacman -S pcmanfm  
-pacman -S aur/roxterm TODO  
+pacman -S aur/roxterm  
 pacman -S firefox  
 pacman -S keepassxc  
 
@@ -232,7 +232,7 @@ pacman -S gvfs-google
 pacman -S gvfs-nfs  
 pacman -S gvfs-smb  
   
-pacman -S aur/aria2c-daemon TODO  
+pacman -S aur/aria2c-daemon  
 pacman -S rsync  
 pacman -S acpi *Температура, Батарея*  
 pacman -S lshw  
@@ -244,7 +244,6 @@ pacman -S blueman
 pacman -S bluez  
 pacman -S pulseaudio-bluetooth  
   
-pacman -S aur/wpa_supplicant_gui TODO  
 pacman -S network-manager-applet  
 pacman -S inetutils  
   
@@ -257,7 +256,7 @@ pacman -S mpd
 pacman -S ncmpc  
   
 pacman -S pinta  
-pacman -S aur/simplescreenrecorder TODO  
+pacman -S aur/simplescreenrecorder  
   
 pacman -S qrencode  
 pacman -S evince *PDF*  
@@ -269,17 +268,15 @@ pacman -S gnome-calculator
   
 pacman -S telegram-desktop  
 pacman -S discord  
-pacman -S d aur/zoom TODO  
+pacman -S d aur/zoom  
   
 pacman -S wireshark-qt  
 sudo chmod 755 /usr/bin/dumpcap  
   
 pacman -S gdb  
-pacman -S clang-format-all-git TODO  
 pacman -S doxygen  
 pacman -S python  
 pacman -S python-pip  
-pacman -S aur/rpmlint TODO  
 pacman -S man-db  
 pacman -S man-pages  
 pacman -S korganizer  

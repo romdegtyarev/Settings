@@ -14,7 +14,15 @@ ln -s /local/store/git/Settings/common/tmux/tmux.conf ~/.tmux.conf
 ln -s /local/store/git/Settings/common/i3/config ~/.config/i3/config
 ln -s /local/store/git/Settings/common/i3/i3blocks.conf ~/.config/i3/i3blocks.conf
 sudo ln -s /local/store/git/Settings/common/i3/i3blocks /usr/lib/i3blocks
-# Theme install
+cd /local/store/git/
+git clone https://github.com/vinceliuice/Vimix-gtk-themes.git
+cd /local/store/git/Vimix-gtk-themes/
+./install.sh
+
+cd /local/store/git/
+git clone https://github.com/vinceliuice/Vimix-icon-theme.git
+cd /local/store/git/Vimix-icon-theme/
+./install.sh
 
 # X11, GTK
 ln -s /local/store/git/Settings/common/X11/xinitrc ~/.xinitrc
@@ -43,6 +51,7 @@ ln -s /local/store/git/Settings/common/pcmanfm ~/.config/pcmanfm
 sudo cp /local/store/git/Settings/common/ssh/sshd_config /etc/ssh/sshd_config
 sudo cp /local/store/git/Settings/common/ssh/ssh_config /etc/ssh/ssh_config
 # See common/ssh/help.txt
+# TODO
 ssh-keygen -G /tmp/moduli -b 4096
 sudo ssh-keygen -T /etc/ssh/moduli -f /tmp/moduli
 
@@ -54,12 +63,8 @@ sudo rm ssh_host_ecdsa_key*
 sudo rm ssh_host_key*
 sudo ln -s ssh_host_ecdsa_key ssh_host_ecdsa_key
 sudo ln -s ssh_host_key ssh_host_key
-
-cd /etc/ssh
 sudo rm ssh_host_dsa_key*
 sudo ln -s ssh_host_dsa_key ssh_host_dsa_key
-
-cd /etc/ssh
 sudo rm ssh_host_rsa_key*
 sudo ssh-keygen -t rsa -b 4096 -f ssh_host_rsa_key < /dev/null
 
@@ -75,8 +80,8 @@ ln -s /local/store/git/Settings/common/rofi ~/.config/rofi
 ln -s /local/store/git/Settings/common/keepassxc ~/.config/keepassxc
 
 #Add i3 scripts
-sudo cp /local/store/git/system_info_daemon.service /etc/systemd/system/
-sudo cp /local/store/git/system_info_daemon.sh /usr/local/bin/
+sudo cp /local/store/git/Settings/common/i3/i3blocks/system_info_daemon.service /etc/systemd/system/
+sudo cp /local/store/git/Settings/common/i3/i3blocks/system_info_daemon.sh /usr/local/bin/
 sudo systemctl start system_info_daemon.service
 sudo systemctl enable system_info_daemon.service
 
