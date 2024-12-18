@@ -12,6 +12,8 @@ ln -s ~/local/store/git/Settings/rommacair/tmux/tmux.conf ~/.tmux.conf
 
 # Apps
 ln -s ~/local/store/git/Settings/common/gitconfig ~/.gitconfig
+ln -s /local/store/git/Settings/common/gitconfig ~/.gitignoreglobal
+git config --global core.excludesfile ~/.gitignoreglobal
 ln -s ~/local/store/git/Settings/common/vim/vimrc ~/.vimrc
 sudo cp /local/store/git/Settings/common/ssh/ssh_config /etc/ssh/ssh_config
 # See common/ssh/help.txt

@@ -1,0 +1,50 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.swp
+
+# Ignore IDE and editor settings
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+*.project
+*.cproject
+
+# Ignore Node.js dependencies
+node_modules/
+
+# Ignore Python cache and virtual environment
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+.env/
+
+# Ignore compiled files
+*.out
+*.class
+*.o
+*.so
+
+# Ignore archive files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Ignore OS-specific files
+*.bak
+*.~lock.*
+desktop.ini
+
+# Ignore other sensitive files
+.env
+*.key
+*.pem
+

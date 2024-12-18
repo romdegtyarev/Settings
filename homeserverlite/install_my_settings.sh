@@ -72,6 +72,8 @@ ssh-keygen -t ed25519
 ssh-keygen -t rsa -b 4096
 
 ln -s /local/store/git/Settings/common/gitconfig ~/.gitconfig
+ln -s /local/store/git/Settings/common/gitconfig ~/.gitignoreglobal
+git config --global core.excludesfile ~/.gitignoreglobal
 ln -s /local/store/git/Settings/common/vim/vimrc ~/.vimrc
 sudo ln -s /local/store/git/Settings/common/pacman.conf /etc/pacman.conf
 sudo ln -s /local/store/git/Settings/homeserver/minidlna.conf /etc/minidlna.conf

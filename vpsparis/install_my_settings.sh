@@ -36,6 +36,8 @@ ssh-keygen -t rsa -b 4096
 sudo ufw allow PORT
 
 ln -s /local/store/git/Settings/common/gitconfig ~/.gitconfig
+ln -s /local/store/git/Settings/common/gitconfig ~/.gitignoreglobal
+git config --global core.excludesfile ~/.gitignoreglobal
 ln -s /local/store/git/Settings/common/vim/vimrc ~/.vimrc
 
 # For root

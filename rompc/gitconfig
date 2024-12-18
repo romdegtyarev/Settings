@@ -3,6 +3,7 @@
 	name = Roman Degtyarev
 [core]
 	editor = vim
+	excludesfile = /home/romdegtyarev/.gitignoreglobal
 [alias]
 	sts = status --short --branch
 

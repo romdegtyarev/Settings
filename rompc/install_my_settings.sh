@@ -70,6 +70,8 @@ ssh-keygen -t rsa -b 4096
 
 
 ln -s /local/store/git/Settings/rompc/gitconfig ~/.gitconfig
+ln -s /local/store/git/Settings/common/gitconfig ~/.gitignoreglobal
+git config --global core.excludesfile ~/.gitignoreglobal
 ln -s /local/store/git/Settings/common/vim/vimrc ~/.vimrc
 sudo ln -s /local/store/git/Settings/common/pacman.conf /etc/pacman.conf
 ln -s /local/store/git/Settings/common/Pinta ~/.config/Pinta

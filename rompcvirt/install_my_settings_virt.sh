@@ -36,6 +36,8 @@ ln -s /local/store/git/Settings/rompcvirt/pcmanfm ~/.config/pcmanfm
 
 # Apps
 ln -s /local/store/git/Settings/rompcvirt/gitconfig ~/.gitconfig
+ln -s /local/store/git/Settings/common/gitconfig ~/.gitignoreglobal
+git config --global core.excludesfile ~/.gitignoreglobal
 ln -s /local/store/git/Settings/common/vim/vimrc ~/.vimrc
 ln -s /local/store/git/Settings/common/rofi ~/.config/rofi
 
