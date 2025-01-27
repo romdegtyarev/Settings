@@ -15,3 +15,5 @@
 [push]
 	default = simple
 
+[safe]
+	directory = /usr/share/oh-my-zsh
