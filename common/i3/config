@@ -37,6 +37,10 @@ bindsym Ctrl+$mod+f exec telegram-desktop
 bindsym Ctrl+$mod+j exec mattermost-desktop
 bindsym Ctrl+$mod+t exec gedit
 bindsym Ctrl+$mod+v exec virtualbox
+bindsym Ctrl+$mod+7 exec playerctl previous
+bindsym Ctrl+$mod+8 exec playerctl play-pause
+bindsym Ctrl+$mod+9 exec playerctl next
+
 
 # Kill focused window
 bindsym $mod+Shift+q kill
