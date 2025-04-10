@@ -7,8 +7,8 @@ icon_off="🔴"
 _VPN_ () {
     local interface=$1
 
-    local ip=$(ifconfig "$interface" | awk '/inet /{print $2}' | cut -d: -f2)
-
+    clean_interface=${interface%%@*}
+    local ip=$(ifconfig "$clean_interface" | awk '/inet /{print $2}' | cut -d: -f2)
     if [[ -n $ip ]]; then
         echo "VPN $icon_on "
     else
@@ -19,7 +19,7 @@ _VPN_ () {
 output=""
 vpn_found=false
 for interface in $(ip link show | awk -F': ' '{print $2}'); do
-    if [[ $interface == tun* || $interface == tap* || $interface == wg* ]]; then
+    if [[ $interface == tun* || $interface == tap* || $interface == wg* || $interface == veth0* ]]; then
         output+=$(_VPN_ "$interface")
         vpn_found=true
     fi
