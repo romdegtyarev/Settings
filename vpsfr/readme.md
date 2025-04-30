@@ -26,8 +26,8 @@ sudo apt-get upgrade
 ### Настройка пользователя:  
 adduser username_1  
 usermod -aG sudo username_1  
-adduser username_1  
-usermod -aG sudo username_1  
+adduser username_2  
+usermod -aG sudo username_2  
 
 ### Установка и настройка основных пакетов:  
 sudo apt-get install fail2ban  
@@ -81,6 +81,7 @@ sudo apt-get install docker
 sudo apt-get install docker.io  
 sudo apt-get install docker-compose  
 sudo usermod -aG docker username_1  
+sudo usermod -aG docker username_2  
 sudo systemctl start docker.service  
 sudo systemctl enable docker.service  
 
