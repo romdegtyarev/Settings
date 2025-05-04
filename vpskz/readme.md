@@ -37,10 +37,6 @@ sudo apt-get install zsh
 sudo apt-get install tmux  
 sudo apt-get install xclip  
 sudo apt-get install htop  
-  
-sudo apt-get install wireguard  
-*Настройка wg*  
-sudo ufw allow PORT  
 
 ### Настройка хранилища:  
 mkdir -p /local/store/  
@@ -85,8 +81,6 @@ sudo apt-get install docker-compose
 sudo usermod -aG docker username_1  
 sudo systemctl start docker.service  
 sudo systemctl enable docker.service  
-  
-*Настройка OPENVPN*  
 
 ### Настройка пакетов для работы:  
 sudo apt-get install freeradius  
