@@ -1,105 +1,26 @@
-aom
-autoconf
-automake
-brotli
-ca-certificates
-cmake
-docbook
-docbook-xsl
-fdupes
-fontconfig
-freetype
-gdbm
-gettext
-ghostscript
-giflib
-glib
-gmp
-gnu-getopt
-highway
-ilmbase
-imagemagick
-imath
-iperf
-jasper
-jbig2dec
-jp2a
-jpeg
-jpeg-turbo
-jpeg-xl
-lazygit
-libde265
-libevent
-libffi
-libheif
-libice
-libidn
-libidn2
-liblqr
-libmpc
-libomp
-libpng
-libraw
-libsm
-libtiff
-libtool
-libunistring
-libusb
-libusb-compat
-libvmaf
-libx11
-libxau
-libxcb
-libxdmcp
-libxext
-libxmu
-libxt
-little-cms2
-lsusb
-lz4
-lzo
-m4
-mpdecimal
-mpfr
-ncurses
-neofetch
-openexr
-openjpeg
-openssl@1.1
-openssl@3
-pcre
-pcre2
-pkcs11-helper
-pkg-config
-python@3.8
-python@3.9
-qrencode
-readline
-reattach-to-user-namespace
-screenresolution
-shared-mime-info
-sqlite
-sshfs
-stlink
-tcl-tk
-texinfo
-tmux
-tree
-unrar
-utf8proc
-util-linux
-webp
-wget
-x265
-xclip
-xmlto
-xorgproto
-xz
-zsh
-zsh-completions
-zstd
+brew list --versions
+ca-certificates 2024-03-11
+jq 1.7.1
+libevent 2.1.12_1
+libice 1.1.1
+libsm 1.2.4
+libx11 1.8.9
+libxau 1.0.11
+libxcb 1.17.0
+libxdmcp 1.1.5
+libxext 1.3.6
+libxmu 1.2.1
+libxt 1.3.0
+ncurses 6.5
+oniguruma 6.9.9
+openssl@3 3.3.0
+powerline-go 1.24
+tmux 3.4_1
+tree 2.1.3
+utf8proc 2.9.0
+xclip 0.13_1
+xorgproto 2024.1
 
-attachecase
-meld
-xquartz
+openconnect-gui 1.5.3
+remoteviewer 0.5.7-1
 
