@@ -23,8 +23,8 @@ Port 8888
 #RekeyLimit default none
 
 # Logging
-#SyslogFacility AUTH
-#LogLevel DEBUG
+SyslogFacility AUTH
+LogLevel DEBUG
 
 # Authentication:
 
