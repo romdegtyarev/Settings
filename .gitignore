@@ -3,3 +3,5 @@
 .uuid
 .idea
 
+/.pydevproject
+/common/Pinta/addins
