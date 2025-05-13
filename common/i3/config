@@ -214,12 +214,13 @@ bar {
 set $Locker /local/store/git/Settings/common/scripts/lock.sh
 set $LockerNotif /local/store/git/Settings/common/scripts/locknotif.sh
 
-exec --no-startup-id xset -b
-exec --no-startup-id picom
-exec --no-startup-id feh --randomize --bg-fill ~/Pictures/Wallpapers/*
-exec --no-startup-id xkb-switch --i3
-exec --no-startup-id dunst
-exec --no-startup-id xautolock -time 30 -locker $Locker -detectsleep -corners '++--' -cornerdelay 5 -notify 5 -notifier $LockerNotif
+exec --no-startup-id sh -c 'xset -b >> ~/.config/i3/startup.log 2>&1'
+exec --no-startup-id sh -c 'picom >> ~/.config/i3/startup.log 2>&1 &'
+exec --no-startup-id sh -c 'feh --randomize --bg-fill ~/Pictures/Wallpapers/* >> ~/.config/i3/startup.log 2>&1 &'
+#exec --no-startup-id sh -c 'xkb-switch --i3 >> ~/.config/i3/startup.log 2>&1 &'
+#exec --no-startup-id /local/store/git/Settings/common/scripts/i3-xkb-hook.py
+exec --no-startup-id sh -c 'dunst >> ~/.config/i3/startup.log 2>&1 &'
+exec --no-startup-id sh -c 'xautolock -time 30 -locker "$Locker" -detectsleep -corners "++--" -cornerdelay 5 -notify 5 -notifier "$LockerNotif" >> ~/.config/i3/startup.log 2>&1 &'
 
 # Custom shortcut
 # Lockscreen and suspend
