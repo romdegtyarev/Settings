@@ -1,6 +1,6 @@
 ﻿<settings>
-  <setting name="window-size-width" type="System.Int32">1348</setting>
-  <setting name="window-size-height" type="System.Int32">723</setting>
+  <setting name="window-size-width" type="System.Int32">948</setting>
+  <setting name="window-size-height" type="System.Int32">1033</setting>
   <setting name="ruler-metric" type="System.Int32">0</setting>
   <setting name="window-maximized" type="System.Boolean">False</setting>
   <setting name="ruler-shown" type="System.Boolean">False</setting>
@@ -24,4 +24,10 @@
   <setting name="paintbuckettool-fill-mode" type="System.Int32">0</setting>
   <setting name="paintbuckettool-fill-tolerance" type="System.Int32">0</setting>
   <setting name="color-picker-sample-size" type="System.Int32">0</setting>
+  <setting name="color-scheme" type="System.Int32">0</setting>
+  <setting name="tool-windows-shown" type="System.Boolean">True</setting>
+  <setting name="erasertool-brush-width" type="System.Int32">2</setting>
+  <setting name="freeformshapetool-brush-width" type="System.Int32">2</setting>
+  <setting name="clonestamptool-brush-width" type="System.Int32">2</setting>
+  <setting name="recolortool-brush-width" type="System.Int32">2</setting>
 </settings>
