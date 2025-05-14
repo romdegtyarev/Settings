@@ -208,7 +208,19 @@ bar {
 
 # Window association
 # Get info: xprop
-#assign [class="Firefox"] $wspace1
+assign [class="Remote-viewer"] $wspace1
+assign [class="Roxterm"] $wspace2
+assign [class="thunderbird"] $wspace2
+assign [class="firefox"] $wspace3
+assign [class="Chromium"] $wspace3
+assign [class="TelegramDesktop"] $wspace4
+assign [class="Mattermost"] $wspace4
+assign [class="Pcmanfm"] $wspace5
+assign [class="Gedit"] $wspace6
+assign [class="KeePassXC"] $wspace8
+assign [class="Spotify"] $wspace9
+assign [class="Eclipse"] $wspace10
+
 
 # Custom autostart
 set $Locker /local/store/git/Settings/common/scripts/lock.sh
