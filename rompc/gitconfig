@@ -1,6 +1,6 @@
 [user]
-	email = guromka@gmail.com
-	name = Roman Degtyarev
+	email = admin@romdegtyarev.su
+	name = Jon Up
 [core]
 	editor = vim
 	excludesfile = /home/romdegtyarev/.gitignoreglobal
