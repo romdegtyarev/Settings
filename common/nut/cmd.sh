@@ -50,6 +50,7 @@ case $1 in
       ;;
 esac
 
+TELEGRAM_BOT_TEXT_MESSAGE="$VPSFLAG: $TELEGRAM_BOT_TEXT_MESSAGE"
 echo $TELEGRAM_BOT_TEXT_MESSAGE
 logger $TELEGRAM_BOT_TEXT_MESSAGE
 # Use the curl command to send the message
