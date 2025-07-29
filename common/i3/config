@@ -33,7 +33,7 @@ bindsym Ctrl+$mod+n exec pcmanfm
 bindsym Ctrl+$mod+e exec eclipse
 bindsym Ctrl+$mod+b exec firefox
 bindsym Ctrl+$mod+m exec thunderbird
-bindsym Ctrl+$mod+f exec telegram-desktop
+bindsym Ctrl+$mod+f exec Telegram
 bindsym Ctrl+$mod+j exec mattermost-desktop
 bindsym Ctrl+$mod+t exec gedit
 bindsym Ctrl+$mod+v exec virtualbox
