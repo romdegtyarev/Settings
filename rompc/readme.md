@@ -73,11 +73,13 @@ FONT=cyr-sun16
   
 
 ### Настройка времени:  
-ln -sf /usr/share/zoneinfo/YOUR/TIME/ZONE /etc/localetime  
+ln -sf /usr/share/zoneinfo/YOUR/TIME/ZONE /etc/localtime  
 hwclock --systohc --utc  
-pacman -S ntpdate  
-sudo systemctl start ntpd.service
-sudo systemctl enable ntpd.service
+pacman -S ntp  
+sudo systemctl start ntpd --now  
+sudo systemctl enable ntpd --now  
+sudo systemctl start systemd-timesyncd  
+sudo systemctl enable systemd-timesyncd  
 
 ### Настройка имени хост машины:  
 echo ROMPC > /etc/hostname  
@@ -96,14 +98,13 @@ grub-mkconfig -o /boot/grub/grub.cfg
 pacman -S networkmanager  
 systemctl start NetworkManager.service  
 systemctl enable NetworkManager.service  
+pacman -S network-manager-applet  
 
 ### Reboot:  
 
 ### Настройка пользователя:  
 useradd -m -g users -G wheel username_1  
 passwd username_1  
-useradd -m -g users -G wheel username_2  
-passwd username_2  
   
 *Разрешаем пользователям состоящим в группе wheel использовать sudo (расскоментировав следующие строки):*  
 >%wheel ALL=(ALL) ALL):  
@@ -116,10 +117,18 @@ Include = /etc/pacman.d/mirrorlist
   
 
 ### Установка и настройка основных пакетов:  
+pacman -S sudo  
+pacman -S fakeroot  
+pacman -S debugedit  
+pacman -S make  
+pacman -S go  
+  
 pacman -S openssh  
 pacman -S sshfs  
 pacman -S sshpass  
 pacman -S fail2ban  
+systemctl start fail2ban.service  
+systemctl enable fail2ban.service  
 systemctl start sshd.service  
 systemctl enable sshd.service  
 ssh-keygen  
@@ -134,22 +143,29 @@ pacman -S tmux
 pacman -S xclip  
 pacman -S htop  
   
-pacman -S go  
-  
-pacman -S net-tools  
-pacman -S whois  
-pacman -S nmap  
 pacman -S ufw  
-pacman -S tcpdump  
-pacman -S iperf  
+sudo ufw enable  
+*Настроить ufw*  
+pacman -S net-tools  
 pacman -S wireless_tools  
+pacman -S inetutils  
+pacman -S whois  
+pacman -S resolvconf  
+pacman -S nmap  
+pacman -S tcpdump  
+pacman -S tcpreplay  
+pacman -S iperf  
+pacman -S socat  
+pacman -S net-snmp  
+sudo systemctl start snmpd.service  
+sudo systemctl start snmptrapd.service  
+sudo systemctl enable snmpd.service  
+sudo systemctl enable snmptrapd.service  
 pacman -S wireguard-tools  
 *Настройка wg*  
 pacman -S openvpn  
-pacman -S resolvconf  
 pacman -S openconnect  
-pacman -S aur/openconnect-gui  
-pacman -S networkmanager-openconnect  
+pacman -S aur/hiddify  
 
 ### Настройка хранилища:  
 mkdir -p /local/store/  
@@ -172,7 +188,7 @@ sudo mkdir oh-my-zsh
 cd  
 cd .oh-my-zsh  
 sudo cp -r ./ /usr/share/oh-my-zsh/  
-*Темы и плагины*  
+*Темы и плагины есть в install_my_settings.sh*  
 
 ### Настройка github:  
 mkdir -p /local/store/git/  
@@ -188,18 +204,12 @@ pacman -S i3-gaps
 pacman -S i3blocks  
 pacman -S i3status  
 pacman -S aur/i3lock-color  
-*Папка с настройками xorg /etc/X11/xorg.conf.d/*  
+*Папка с настройками xorg /etc/X11/xorg.conf.d/ есть в install_my_settings.sh*  
 pacman -S lxappearance  
-*Установка темы vimix-icon-theme vimix-gtk-themes*  
-pacman -S gtk2  
-pacman -S gtk3  
-pacman -S gtk4  
+*Установка темы vimix-icon-theme vimix-gtk-themes есть в install_my_settings.sh*  
 pacman -S aur/gtk-theme-config  
-pacman -S webkit2gtk  
-pacman -S webkitgtk-6.0  
-pacman -S lx-qt-themes
-pacman -S qt5-styleplugins  
-pacman -S qt6gtk2  
+pacman -S materia-gtk-theme  
+  
 pacman -S dunst  
   
 pacman -S rofi  
@@ -216,27 +226,31 @@ pacman -S pulseaudio
 pacman -S pulseaudio-alsa  
 pacman -S pipewire  
 pacman -S pipewire-audio  
-pacman -S pipewire-pulse  
   
 pacman -S xorg-xinit  
 pacman -S xorg-server  
 pacman -S xorg-xset  
   
-pacman -S oft-font-awesome  
-pacman -S ttf-font-awesome  
+pacman -S otf-font-awesome  
+pacman -S woff2-font-awesome  
 pacman -S awesome-terminal-fonts  
 pacman -S powerline-fonts  
 pacman -S aur/noto-color-emoji-fontconfig  
   
-pacman -S neofetch  
+pacman -S aur/neofetch  
 pacman -S sl  
 pacman -S scrot  
 pacman -S xxkb  
-pacman -S aur/xkb-switch-i3  
-pacman -S xautolock  
+pacman -S aur/xkblayout
+pacman -S aur/xkblayout-state-git
+pacman -S aur/xautolock  
+pacman -S xdotool  
+  
+pacman -S gnome-system-monitor  
 pacman -S pcmanfm  
 pacman -S aur/roxterm  
 pacman -S firefox  
+pacman -S chromium  
 pacman -S keepassxc  
 
 ### Настройка soft'a:  
@@ -258,7 +272,6 @@ pacman -S gvfs-google
 pacman -S gvfs-nfs  
 pacman -S gvfs-smb  
   
-pacman -S aur/aria2c-daemon  
 pacman -S rsync  
 pacman -S acpi *Температура, Батарея*  
 pacman -S lshw  
@@ -269,22 +282,13 @@ pacman -S upower
 pacman -S blueman  
 pacman -S bluez  
 pacman -S bluez-utils  
-pacman -S  bluez-qt5  
 pacman -S pulseaudio-bluetooth  
-  
-pacman -S aur/wpa_supplicant_gui  
-pacman -S network-manager-applet  
-pacman -S inetutils  
   
 pacman -S cups  
 pacman -S system-config-printer  
 pacman -S aur/xerox-phaser-3020  
   
 pacman -S vlc  
-pacman -S mpc  
-pacman -S mpd  
-pacman -S ncmpc  
-pacman -S aur/cider  
 pacman -S spotify-launcher  
 pacman -S playerctl  
   
@@ -293,20 +297,16 @@ pacman -S gimp
 pacman -S aur/simplescreenrecorder  
   
 pacman -S qrencode  
-pacman -S galculator  
+pacman -S jq  
+pacman -S gnome-calculator  
+pacman -S korganaizer  
 pacman -S evince *PDF*  
-pacman -S aur/drawio  
-pacman -S aur/drawio-desktop  
 pacman -S gedit  
 pacman -S gedit-plugins  
 pacman -S libreoffice-fresh  
-pacman -S jq  
-pacman -S gnome-calculator  
-pacman -S gitlab-runner  
   
 pacman -S telegram-desktop  
 pacman -S discord  
-pacman -S d aur/zoom  
 pacman -S thunderbird  
   
 *Eclipse Установщик*  
@@ -314,48 +314,30 @@ pacman -S meld
 pacman -S wireshark-qt  
 sudo chmod 755 /usr/bin/dumpcap  
   
-pacman -S aur/chirp-next  
-  
 pacman -S gdb  
-pacman -S clang-format-all-git  
+pacman -S aur/clang-format-all-git  
 pacman -S doxygen  
 pacman -S python  
-pacman -S python-pip  
 pacman -S aur/rpmlint  
 pacman -S man-db  
 pacman -S man-pages  
-pacman -S korganaizer  
 
 ### Настройка пакетов для работы:  
-pacman -S virtualbox  
-pacman -S virtualbox-host-dkms  
-pacman -S virtualbox-guest-iso  
-pacman -S minicom  
-pacman -S net-snmp  
-pacman -S tcpreplay  
-pacman -S socat  
 pacman -S aur/memstat  
+pacman -S sysstat  
+pacman -S tftp-hpa  
+pacman -S nfs-utils  
   
-pacman -S freeradius  
+docker pull postgres  
+docker pull freeradius/freeradius-server  
 docker pull lfkeitel/tacacs_plus  
+docker pull python  
 pacman -S scapy  
 pacman -S python-scapy  
   
-pacman -S tftp-hpa  
-pacman -S nfs-utils  
-pacman -S nginx  
-pacman -S haproxy  
-  
+pacman -S minicom  
 pacman -S mattermost-desktop  
-  
-pacman -S aur/gns3-server  
-pacman -S aur/gns3-gui  
-pacman -S aur/ubridge  
-pacman -S qemu  
-pacman -S aur/dynamips  
 pacman -S virt-viewer  
-
-#### RDP  
-pacman -S freerdp  
-pacman -S xrdp  
+  
+*Установка необходимых сертификатов*  
 

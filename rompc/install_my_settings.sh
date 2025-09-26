@@ -15,6 +15,13 @@ ln -s /local/store/git/Settings/common/i3/config ~/.config/i3/config
 ln -s /local/store/git/Settings/rompc/i3/i3blocks.conf ~/.config/i3/i3blocks.conf
 sudo ln -s /local/store/git/Settings/common/i3/i3blocks /usr/lib/i3blocks
 # Theme install
+cd /local/store/git/
+git clone https://github.com/vinceliuice/vimix-gtk-themes.git
+git clone git@github.com:vinceliuice/vimix-icon-theme.git
+cd /local/store/git/vimix-gtk-themes
+./install.sh -t all -s all
+cd /local/store/git/vimix-icon-theme
+./install.sh -a
 
 # X11, GTK
 ln -s /local/store/git/Settings/common/X11/xinitrc ~/.xinitrc
@@ -70,7 +77,7 @@ ssh-keygen -t rsa -b 4096
 
 
 ln -s /local/store/git/Settings/rompc/gitconfig ~/.gitconfig
-ln -s /local/store/git/Settings/common/gitconfig ~/.gitignoreglobal
+cp /local/store/git/Settings/common/gitignoreglobal ~/.gitignoreglobal
 git config --global core.excludesfile ~/.gitignoreglobal
 ln -s /local/store/git/Settings/common/vim/vimrc ~/.vimrc
 sudo ln -s /local/store/git/Settings/common/pacman.conf /etc/pacman.conf
@@ -80,8 +87,8 @@ ln -s /local/store/git/Settings/common/keepassxc ~/.config/keepassxc
 ln -s /local/store/git/Settings/rompc/minirc.dfl ~/.minirc.dfl
 
 #Add i3 scripts
-sudo cp /local/store/git/system_info_daemon.service /etc/systemd/system/
-sudo cp /local/store/git/system_info_daemon.sh /usr/local/bin/
+sudo cp /local/store/git/Settings/common/i3/i3blocks/system_info_daemon.service /etc/systemd/system/
+sudo cp /local/store/git/Settings/common/i3/i3blocks/system_info_daemon.sh /usr/local/bin/
 sudo systemctl start system_info_daemon.service
 sudo systemctl enable system_info_daemon.service
 
