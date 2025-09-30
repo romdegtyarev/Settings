@@ -38,7 +38,7 @@ ln -s /local/store/git/Settings/common/user-dirs.dirs ~/.config/user-dirs.dirs
 ln -s /local/store/git/Settings/common/user-dirs.locale ~/.config/user-dirs.locale
 
 # Fonts
-ln -s /local/store/git/Settings/common/fonts ~/.fonts
+cp -r /local/store/git/Settings/common/fonts ~/.fonts
 
 # roxterm
 ln -s /local/store/git/Settings/common/roxterm/roxterm.sourceforge.net ~/.config/roxterm.sourceforge.net
