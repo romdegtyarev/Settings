@@ -156,6 +156,7 @@ pacman -S tcpdump
 pacman -S tcpreplay  
 pacman -S iperf  
 pacman -S socat  
+pacman -S openbsd-netcat  
 pacman -S net-snmp  
 sudo systemctl start snmpd.service  
 sudo systemctl start snmptrapd.service  
@@ -241,12 +242,13 @@ pacman -S aur/neofetch
 pacman -S sl  
 pacman -S scrot  
 pacman -S xxkb  
-pacman -S aur/xkblayout
-pacman -S aur/xkblayout-state-git
+pacman -S aur/xkblayout  
+pacman -S aur/xkblayout-state-git  
 pacman -S aur/xautolock  
 pacman -S xdotool  
   
 pacman -S gnome-system-monitor  
+pacman -S gnome-logs  
 pacman -S pcmanfm  
 pacman -S aur/roxterm  
 pacman -S firefox  
@@ -309,7 +311,7 @@ pacman -S telegram-desktop
 pacman -S discord  
 pacman -S thunderbird  
   
-*Eclipse Установщик*  
+*Eclipse Установщик или AUR*  
 pacman -S meld  
 pacman -S wireshark-qt  
 sudo chmod 755 /usr/bin/dumpcap  
