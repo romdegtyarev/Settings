@@ -92,9 +92,11 @@ sudo cp /local/store/git/Settings/common/i3/i3blocks/system_info_daemon.sh /usr/
 sudo systemctl start system_info_daemon.service
 sudo systemctl enable system_info_daemon.service
 
+#NUT Config
+# See common/nut/help.txt
+
 # For root
 sudo ln -s /local/store/git/Settings/common/zsh/bashrc /root/.bashrc
 sudo ln -s /local/store/git/Settings/common/vim/vimrc /root/.vimrc
 sudo ln -s /local/store/git/Settings/common/zsh/zshrc_root /root/.zshrc
-
 

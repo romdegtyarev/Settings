@@ -1,5 +1,0 @@
-sudo upsdrvctl stop
-sudo upsdrvctl start
-sudo systemctl restart nut-server.service
-sudo systemctl restart nut-monitor.service
-sudo upsc nutdev-usb1@localhost

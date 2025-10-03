@@ -231,6 +231,7 @@ pacman -S pipewire-audio
 pacman -S xorg-xinit  
 pacman -S xorg-server  
 pacman -S xorg-xset  
+pacman -S xorg-xrandr  
   
 pacman -S otf-font-awesome  
 pacman -S woff2-font-awesome  
