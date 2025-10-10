@@ -208,6 +208,7 @@ pacman -S aur/i3lock-color
 *Папка с настройками xorg /etc/X11/xorg.conf.d/ есть в install_my_settings.sh*  
 pacman -S lxappearance  
 *Установка темы vimix-icon-theme vimix-gtk-themes есть в install_my_settings.sh*  
+pacman -S aur/gradience
 pacman -S aur/gtk-theme-config  
 pacman -S materia-gtk-theme  
   

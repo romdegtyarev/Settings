@@ -32,7 +32,7 @@ ln -s /local/store/git/Settings/rompc/scripts/xmodmap.sh ~/xmodmap.sh
 
 ln -s /local/store/git/Settings/common/gtk-bookmarks ~/.gtk-bookmarks
 
-ln -s /local/store/git/Settings/common/gtk-2.0 ~/.config/gtk-2.0
+cp -r /local/store/git/Settings/common/gtk-2.0 ~/.config/gtk-2.0
 ln -s /local/store/git/Settings/rompc/gtk-3.0/bookmarks ~/.config/gtk-3.0/bookmarks
 ln -s /local/store/git/Settings/common/user-dirs.dirs ~/.config/user-dirs.dirs
 ln -s /local/store/git/Settings/common/user-dirs.locale ~/.config/user-dirs.locale
