@@ -320,6 +320,7 @@ sudo chmod 755 /usr/bin/dumpcap
   
 pacman -S gdb  
 pacman -S aur/clang-format-all-git  
+pacman -S python-flake8  
 pacman -S doxygen  
 pacman -S python  
 pacman -S aur/rpmlint  
