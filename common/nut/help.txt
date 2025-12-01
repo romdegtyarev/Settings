@@ -6,8 +6,8 @@ sudo systemctl start nut-server.service
 sudo systemctl enable nut-server.service
 sudo systemctl start nut-monitor.service
 sudo systemctl enable nut-monitor.service
-sudo systemctl start nut-driver@nutdev-usb1.service 
-sudo systemctl enable nut-driver@nutdev-usb1.service 
+sudo systemctl start nut-driver@nutdev-usb1.service
+sudo systemctl enable nut-driver@nutdev-usb1.service
 
 sudo upsc nutdev-usb1@localhost
 
