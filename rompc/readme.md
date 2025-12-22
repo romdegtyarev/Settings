@@ -252,6 +252,7 @@ pacman -S xdotool
 pacman -S gnome-system-monitor  
 pacman -S gnome-logs  
 pacman -S pcmanfm  
+pacman -S xarchiver  
 pacman -S aur/roxterm  
 pacman -S firefox  
 pacman -S chromium  
@@ -305,6 +306,7 @@ pacman -S jq
 pacman -S gnome-calculator  
 pacman -S korganaizer  
 pacman -S evince *PDF*  
+pacman -S nsxiv  
 pacman -S gedit  
 pacman -S gedit-plugins  
 pacman -S libreoffice-fresh  
