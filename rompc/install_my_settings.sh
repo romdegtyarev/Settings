@@ -55,9 +55,6 @@ sudo cp /local/store/git/Settings/common/ssh/ssh_config /etc/ssh/ssh_config
 ssh-keygen -G /tmp/moduli -b 4096
 sudo ssh-keygen -T /etc/ssh/moduli -f /tmp/moduli
 
-ssh-keygen -M generate -O bits=4096 /tmp/moduli
-sudo ssh-keygen -M screen -f /tmp/moduli /etc/ssh/moduli
-
 cd /etc/ssh
 sudo rm ssh_host_ecdsa_key*
 sudo rm ssh_host_key*
@@ -74,7 +71,7 @@ sudo ssh-keygen -t rsa -b 4096 -f ssh_host_rsa_key < /dev/null
 
 ssh-keygen -t ed25519
 ssh-keygen -t rsa -b 4096
-
+sudo ufw allow PORT
 
 ln -s /local/store/git/Settings/rompc/gitconfig ~/.gitconfig
 cp /local/store/git/Settings/common/gitignoreglobal ~/.gitignoreglobal

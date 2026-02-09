@@ -5,9 +5,11 @@ Arch Linux x86_64
 1. Загружаемся с загрузочной флешки  
 
 2. Создаем разделы:  
-parted /dev/sda
-*Для просмотра текущих разделов можно использовать команду:*
-print
+parted /dev/sda  
+*Для просмотра текущих разделов можно использовать команду:*  
+print  
+
+3. Задаем partition table для диска:  
 
 4. Форматируем разделы:  
 mkswap /dev/sda2  
@@ -63,6 +65,11 @@ FONT=cyr-sun16
 ### Настройка времени:  
 ln -sf /usr/share/zoneinfo/YOUR/TIME/ZONE /etc/localtime  
 hwclock --systohc --utc  
+pacman -S ntp  
+sudo systemctl start ntpd --now  
+sudo systemctl enable ntpd --now  
+sudo systemctl start systemd-timesyncd  
+sudo systemctl enable systemd-timesyncd  
 
 ### Настройка имени хост машины:  
 echo HOMESERVERLITE > /etc/hostname  
@@ -82,6 +89,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 pacman -S networkmanager  
 systemctl start NetworkManager.service  
 systemctl enable NetworkManager.service  
+pacman -S network-manager-applet  
 
 ### Reboot:  
 
@@ -100,12 +108,21 @@ Include = /etc/pacman.d/mirrorlist
   
 
 ### Установка и настройка основных пакетов:  
+pacman -S sudo  
+pacman -S fakeroot  
+pacman -S debugedit  
+pacman -S make  
+pacman -S go  
+  
 pacman -S openssh  
 pacman -S sshfs  
 pacman -S sshpass  
 pacman -S fail2ban  
+systemctl start fail2ban.service  
+systemctl enable fail2ban.service  
 systemctl start sshd.service  
 systemctl enable sshd.service  
+ssh-keygen  
   
 pacman -S curl  
 pacman -S wget  
@@ -117,26 +134,29 @@ pacman -S tmux
 pacman -S xclip  
 pacman -S htop  
   
-pacman -S go  
-  
-pacman -S net-tools  
-pacman -S whois  
-pacman -S nmap  
 pacman -S ufw  
+sudo ufw enable  
+*Настроить ufw*  
+pacman -S net-tools  
+pacman -S wireless_tools  
+pacman -S inetutils  
+pacman -S whois  
+pacman -S resolvconf  
+pacman -S nmap  
 pacman -S tcpdump  
+pacman -S tcpreplay  
 pacman -S iperf  
 pacman -S wireless_tools  
 pacman -S wireguard-tools  
+*Настройка wg*  
 pacman -S openvpn  
-pacman -S resolvconf  
 pacman -S openconnect  
+pacman -S aur/hiddify  
 
 ### Настройка хранилища:  
 mkdir -p /local/store/  
 chmod -R 777 /local/store/  
 chown -R username_1:username_1 /local/store/  
-cd /local/store/  
-mkdir git  
 
 ### Настройка YAY:  
 cd /local/store/git  
@@ -152,6 +172,7 @@ sudo mkdir oh-my-zsh
 cd  
 cd .oh-my-zsh  
 sudo cp -r ./ /usr/share/oh-my-zsh/  
+*Темы и плагины есть в install_my_settings.sh*  
 
 ### Настройка github:  
 mkdir -p /local/store/git/  
@@ -167,20 +188,13 @@ pacman -S i3-gaps
 pacman -S i3blocks  
 pacman -S i3status  
 pacman -S aur/i3lock-color  
-
+*Папка с настройками xorg /etc/X11/xorg.conf.d/ есть в install_my_settings.sh*  
 pacman -S lxappearance  
-pacman -S gtk2  
-
-pacman -S gtk3  
-pacman -S gtk4  
+*Установка темы vimix-icon-theme vimix-gtk-themes есть в install_my_settings.sh*  
+pacman -S aur/gradience
 pacman -S aur/gtk-theme-config  
-pacman -S webkit2gtk  
-pacman -S webkitgtk-6.0  
-pacman -S lxqt-themes
-pacman -S aur/qt5-styleplugins  
-pacman -S aur/qt6gtk2  
-
-
+pacman -S materia-gtk-theme  
+  
 pacman -S dunst  
   
 pacman -S rofi  
@@ -195,22 +209,33 @@ pacman -S pavucontrol
 pacman -S pamixer  
 pacman -S pulseaudio  
 pacman -S pulseaudio-alsa  
+pacman -S pipewire  
+pacman -S pipewire-audio  
   
 pacman -S xorg-xinit  
 pacman -S xorg-server  
 pacman -S xorg-xset  
+pacman -S xorg-xrandr  
   
-pacman -S oft-font-awesome  
-pacman -S ttf-font-awesome  
+pacman -S otf-font-awesome  
+pacman -S woff2-font-awesome  
 pacman -S awesome-terminal-fonts  
 pacman -S powerline-fonts  
+pacman -S aur/noto-color-emoji-fontconfig  
   
-pacman -S neofetch  
+pacman -S aur/neofetch  
 pacman -S sl  
 pacman -S scrot  
 pacman -S xxkb  
-pacman -S aur/xkb-switch-i3  
+pacman -S aur/xkblayout  
+pacman -S aur/xkblayout-state-git  
+pacman -S aur/xautolock  
+pacman -S xdotool  
+  
+pacman -S gnome-system-monitor  
+pacman -S gnome-logs  
 pacman -S pcmanfm  
+pacman -S xarchiver  
 pacman -S aur/roxterm  
 pacman -S firefox  
 pacman -S keepassxc  
@@ -218,6 +243,8 @@ pacman -S keepassxc
 ### Настройка soft'a:  
 pacman -S unrar  
 pacman -S unzip  
+pacman -S zip  
+pacman -S extra/libzip  
 pacman -S docker  
 pacman -S docker-compose  
 usermod -aG docker username_1  
@@ -242,6 +269,7 @@ pacman -S upower
   
 pacman -S blueman  
 pacman -S bluez  
+pacman -S bluez-utils  
 pacman -S pulseaudio-bluetooth  
   
 pacman -S network-manager-applet  
@@ -251,23 +279,25 @@ pacman -S cups
 pacman -S system-config-printer  
   
 pacman -S vlc  
-pacman -S mpc  
-pacman -S mpd  
-pacman -S ncmpc  
+pacman -S spotify-launcher  
+pacman -S playerctl  
   
 pacman -S pinta  
 pacman -S aur/simplescreenrecorder  
   
 pacman -S qrencode  
+pacman -S jq  
+pacman -S gnome-calculator  
+pacman -S korganaizer  
 pacman -S evince *PDF*  
+pacman -S nsxiv  
 pacman -S gedit  
 pacman -S gedit-plugins  
 pacman -S libreoffice-fresh  
-pacman -S jq  
-pacman -S gnome-calculator  
   
 pacman -S telegram-desktop  
 pacman -S discord  
+pacman -S thunderbird  
 pacman -S d aur/zoom  
   
 pacman -S wireshark-qt  
@@ -276,11 +306,11 @@ sudo chmod 755 /usr/bin/dumpcap
 pacman -S gdb  
 pacman -S doxygen  
 pacman -S python  
-pacman -S python-pip  
 pacman -S man-db  
 pacman -S man-pages  
-pacman -S korganizer  
 pacman -S minidlna  
   
 pacman -S virt-viewer  
+  
+*Установка необходимых сертификатов*  
 

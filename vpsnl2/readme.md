@@ -30,7 +30,12 @@ adduser username_2
 usermod -aG sudo username_2  
 
 ### Установка и настройка основных пакетов:  
-sudo apt-get install fail2ban  
+apt-get install sudo  
+sudo apt-get install fail2ban 
+systemctl start fail2ban.service  
+systemctl enable fail2ban.service   
+systemctl start sshd.service  
+systemctl enable sshd.service  
   
 sudo apt-get install git  
 sudo apt-get install vim  
@@ -44,8 +49,6 @@ sudo apt-get install htop
 mkdir -p /local/store/  
 chmod -R 777 /local/store/  
 chown -R username_1:username_1 /local/store/  
-cd /local/store/  
-mkdir git  
 
 ### Настройка YAY:  
 
@@ -57,7 +60,7 @@ sudo mkdir oh-my-zsh
 cd  
 cd .oh-my-zsh  
 sudo cp -r ./ /usr/share/oh-my-zsh/  
-*Темы и плагины*  
+*Темы и плагины есть в install_my_settings.sh*  
 
 ### Настройка github:  
 mkdir -p /local/store/git/  
@@ -86,6 +89,5 @@ sudo systemctl start docker.service
 sudo systemctl enable docker.service  
 
 ### Настройка пакетов для работы:  
-sudo apt-get install freeradius  
 
 

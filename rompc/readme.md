@@ -172,8 +172,6 @@ pacman -S aur/hiddify
 mkdir -p /local/store/  
 chmod -R 777 /local/store/  
 chown -R username_1:username_1 /local/store/  
-cd /local/store/  
-mkdir git  
 
 ### Настройка YAY:  
 cd /local/store/git  
@@ -325,7 +323,6 @@ pacman -S aur/clang-format-all-git
 pacman -S python-flake8  
 pacman -S doxygen  
 pacman -S python  
-pacman -S aur/rpmlint  
 pacman -S man-db  
 pacman -S man-pages  
 

@@ -66,10 +66,13 @@ FONT=cyr-sun16
   
 
 ### Настройка времени:  
-ln -sf /usr/share/zoneinfo/YOUR/TIME/ZONE /etc/localetime  
+ln -sf /usr/share/zoneinfo/YOUR/TIME/ZONE /etc/localtime  
 hwclock --systohc --utc  
--pacman -S aur/ntpdate  
--ntpdate time.google.com  
+pacman -S ntp  
+sudo systemctl start ntpd --now  
+sudo systemctl enable ntpd --now  
+sudo systemctl start systemd-timesyncd  
+sudo systemctl enable systemd-timesyncd  
 
 ### Настройка имени хост машины:  
 echo HOMESERVER > /etc/hostname  
@@ -109,10 +112,18 @@ Include = /etc/pacman.d/mirrorlist
   
 
 ### Установка и настройка основных пакетов:  
+pacman -S sudo  
+pacman -S fakeroot  
+pacman -S debugedit  
+pacman -S make  
+pacman -S go  
+  
 pacman -S openssh  
 pacman -S sshfs  
 pacman -S sshpass  
 pacman -S fail2ban  
+systemctl start fail2ban.service  
+systemctl enable fail2ban.service  
 systemctl start sshd.service  
 systemctl enable sshd.service  
 -ssh-keygen  
@@ -127,27 +138,28 @@ pacman -S tmux
 pacman -S xclip  
 pacman -S htop  
   
-pacman -S go  
-  
-pacman -S net-tools  
-pacman -S whois  
-pacman -S nmap  
 pacman -S ufw  
+sudo ufw enable  
+*Настроить ufw*  
+pacman -S net-tools  
+pacman -S wireless_tools  
+pacman -S inetutils  
+pacman -S whois  
+pacman -S resolvconf  
+pacman -S nmap  
 pacman -S tcpdump  
+pacman -S tcpreplay  
 pacman -S iperf  
 pacman -S wireless_tools  
 pacman -S wireguard-tools  
 *Настройка wg*  
 pacman -S openvpn  
-pacman -S resolvconf  
 pacman -S openconnect  
 
 ### Настройка хранилища:  
 mkdir -p /local/store/  
 chmod -R 777 /local/store/  
 chown -R username_1:username_1 /local/store/  
-cd /local/store/  
-mkdir git  
 
 ### Настройка YAY:  
 cd /local/store/git  
@@ -163,7 +175,7 @@ sudo mkdir oh-my-zsh
 cd  
 cd .oh-my-zsh  
 sudo cp -r ./ /usr/share/oh-my-zsh/  
-*Темы и плагины*  
+*Темы и плагины есть в install_my_settings.sh*  
 
 ### Настройка github:  
 -mkdir -p /local/store/git/  
@@ -188,18 +200,21 @@ pacman -S samba
 -pacman -S iptables-persistent  
 -iptables -L  
 
-### Настроpacman -S oft-font-awesomeйка GUI:  
--pacman -S oft-font-awesome  
-pacman -S ttf-font-awesome  
+### Настройка GUI:  
+pacman -S otf-font-awesome  
+pacman -S woff2-font-awesome  
 pacman -S awesome-terminal-fonts  
 pacman -S powerline-fonts  
+pacman -S aur/noto-color-emoji-fontconfig  
   
-pacman -S neofetch  
+pacman -S aur/neofetch  
 pacman -S sl  
 
 ### Настройка soft'a:  
 pacman -S unrar  
 pacman -S unzip  
+pacman -S zip  
+pacman -S extra/libzip  
 pacman -S docker  
 pacman -S docker-compose  
 usermod -aG docker username_1  
@@ -220,11 +235,9 @@ pacman -S acpi *Температура, Батарея*
 pacman -S lshw  
 pacman -S usbutils  
 pacman -S nut  
+pacman -S upower  
 pacman -S minidlna  
 pacman -S aur/dump1090-git  
-  
-pacman -S python-pip  
 
 ### Настройка пакетов для работы:  
-pacman -S freeradius  
 

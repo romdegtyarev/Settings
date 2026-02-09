@@ -11,17 +11,11 @@ cp -r ~/local/store/git/Settings/common/zsh/plugins/* ~/.oh-my-zsh/custom/plugin
 ln -s ~/local/store/git/Settings/rommacair/tmux/tmux.conf ~/.tmux.conf
 
 # Apps
-ln -s ~/local/store/git/Settings/common/gitconfig ~/.gitconfig
-ln -s /local/store/git/Settings/common/gitconfig ~/.gitignoreglobal
-git config --global core.excludesfile ~/.gitignoreglobal
-ln -s ~/local/store/git/Settings/common/vim/vimrc ~/.vimrc
+#SSH
 sudo cp /local/store/git/Settings/common/ssh/ssh_config /etc/ssh/ssh_config
 # See common/ssh/help.txt
 ssh-keygen -G /tmp/moduli -b 4096
 sudo ssh-keygen -T /etc/ssh/moduli -f /tmp/moduli
-
-ssh-keygen -M generate -O bits=4096 /tmp/moduli
-sudo ssh-keygen -M screen -f /tmp/moduli /etc/ssh/moduli
 
 cd /etc/ssh
 sudo rm ssh_host_ecdsa_key*
@@ -40,5 +34,9 @@ sudo ssh-keygen -t rsa -b 4096 -f ssh_host_rsa_key < /dev/null
 ssh-keygen -t ed25519
 ssh-keygen -t rsa -b 4096
 
+ln -s ~/local/store/git/Settings/common/gitconfig ~/.gitconfig
+cp ~/local/store/git/Settings/common/gitignoreglobal ~/.gitignoreglobal
+git config --global core.excludesfile ~/.gitignoreglobal
+ln -s ~/local/store/git/Settings/common/vim/vimrc ~/.vimrc
 
 
