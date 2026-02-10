@@ -16,3 +16,5 @@
 [safe]
 	directory = /samba/private/ROM/Docs/keys/keys.git
 	directory = /samba/private/ROM/Docs/servers/servers.git
+	directory = /samba/private/ROM/Docs/wodservice/wodservice.git
+	directory = /samba/private/ROM/Docs/plantmonitor/plantmonitor.git
