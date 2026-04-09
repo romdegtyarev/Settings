@@ -222,8 +222,6 @@ pacman -S alsa-utils
 pacman -S alsa-plugins  
 pacman -S pavucontrol  
 pacman -S pamixer  
-pacman -S pulseaudio  
-pacman -S pulseaudio-alsa  
 pacman -S pipewire  
 pacman -S pipewire-audio  
   
@@ -285,7 +283,6 @@ pacman -S upower
 pacman -S blueman  
 pacman -S bluez  
 pacman -S bluez-utils  
-pacman -S pulseaudio-bluetooth  
   
 pacman -S cups  
 pacman -S system-config-printer  
