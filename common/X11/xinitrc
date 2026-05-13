@@ -1,5 +1,12 @@
 numlockx &
 #[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 #xrdb -load $HOME/.Xresources
+export XDG_CURRENT_DESKTOP=i3
+export XDG_SESSION_DESKTOP=i3
+export DESKTOP_SESSION=i3
+
+systemctl --user import-environment DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP DESKTOP_SESSION
+dbus-update-activation-environment --systemd DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP DESKTOP_SESSION
+
 exec i3 2>/dev/null
 
