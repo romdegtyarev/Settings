@@ -19,7 +19,7 @@ _ETH_ () {
 output=""
 output+=$(_ETH_ "enp3s0")
 output+=$(_ETH_ "enp2s0")
-output+=$(_ETH_ "enp0s20u7")
+output+=$(_ETH_ "enp0s20")
 echo "$output"
 
 case "$BLOCK_BUTTON" in
