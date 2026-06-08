@@ -145,15 +145,12 @@ pacman -S net-tools
 pacman -S wireless_tools  
 pacman -S inetutils  
 pacman -S whois  
-pacman -S resolvconf  
+pacman -S systemd-resolvconf  
 pacman -S nmap  
 pacman -S tcpdump  
-pacman -S tcpreplay  
 pacman -S iperf  
 pacman -S wireguard-tools  
 *Настройка wg*  
-pacman -S openvpn  
-pacman -S openconnect  
 
 ### Настройка хранилища:  
 mkdir -p /local/store/  
@@ -196,7 +193,7 @@ iptables -A INPUT -p tcp -m tcp --dport 445 –s 10.0.0.0/24 -j ACCEPT
 iptables -A INPUT -p tcp -m tcp --dport 139 –s 10.0.0.0/24 -j ACCEPT  
 iptables -A INPUT -p udp -m udp --dport 137 –s 10.0.0.0/24 -j ACCEPT  
 iptables -A INPUT -p udp -m udp --dport 138 –s 10.0.0.0/24 -j ACCEPT  
-pacman -S iptables-persistent  
+pacman -S iptables  
 iptables -L  
 
 ### Настройка GUI:  
@@ -224,11 +221,9 @@ pacman -S ntfs-3g
 pacman -S gvfs-mtp  
 pacman -S mtpfs  
 pacman -S libmtp *Монтирование устройств*  
-pacman -S gvfs-google  
 pacman -S gvfs-nfs  
 pacman -S gvfs-smb  
   
-pacman -S aur/aria2c-daemon  
 pacman -S rsync  
 pacman -S acpi *Температура, Батарея*  
 pacman -S lshw  
