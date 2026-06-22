@@ -90,6 +90,11 @@ source $ZSH/oh-my-zsh.sh
 
 ### MY SETTINGS ###
 export EDITOR=vim
+export PATH="$HOME/.local/npm-global/bin:$PATH"
+export PATH="$HOME/.local/lib/nodejs/node-v24.16.0/bin:$HOME/.local/npm-global/bin:$PATH"
+if [ -f ~/.zsh_secrets ]; then
+    source ~/.zsh_secrets
+fi
 
 alias ll='ls -hlF'
 alias lla='ls -hAlF'
