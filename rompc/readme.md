@@ -135,6 +135,8 @@ ssh-keygen
   
 pacman -S curl  
 pacman -S wget  
+pacman -S nodejs  
+pacman -S npm  
 pacman -S git  
 pacman -S vim  
 pacman -S zsh  
@@ -142,6 +144,7 @@ pacman -S zsh
 pacman -S tmux  
 pacman -S xclip  
 pacman -S htop  
+pacman -S tree  
   
 pacman -S ufw  
 sudo ufw enable  
@@ -167,6 +170,7 @@ pacman -S wireguard-tools
 pacman -S openvpn  
 pacman -S openconnect  
 pacman -S aur/hiddify  
+pacman -S xray  
 
 ### Настройка хранилища:  
 mkdir -p /local/store/  
@@ -309,11 +313,16 @@ pacman -S libreoffice-fresh
 pacman -S telegram-desktop  
 pacman -S discord  
 pacman -S thunderbird  
+pacman -S nextcloud-talk-desktop-bin  
   
 *Eclipse Установщик или AUR*  
 pacman -S meld  
 pacman -S wireshark-qt  
 sudo chmod 755 /usr/bin/dumpcap  
+pacman -S aur/opencode  
+pacman -S aur/claude-code  
+npm install -g opencode-ai  
+npm i -g @openai/codex  
   
 pacman -S gdb  
 pacman -S aur/clang-format-all-git  

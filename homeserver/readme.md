@@ -131,6 +131,7 @@ ssh-keygen
 pacman -S curl  
 pacman -S wget  
 pacman -S git  
+pacman -S gitolite  
 pacman -S vim  
 pacman -S zsh  
 *Сменить bash на zsh в /etc/passwd*  
@@ -219,6 +220,7 @@ systemctl enable docker.service
   
 pacman -S ntfs-3g  
 pacman -S gvfs-mtp  
+pacman -S ntfsprogs  
 pacman -S mtpfs  
 pacman -S libmtp *Монтирование устройств*  
 pacman -S gvfs-nfs  

@@ -49,6 +49,15 @@ ln -s /local/store/git/Settings/homeserver/scripts/start_stop.sh ~/start_stop.sh
 #NUT Config
 # See common/nut/help.txt
 
+# Gitolite
+sudo pacman -S gitolite 
+sudo useradd -r -m -d /home/git -s /bin/bash git
+sudo passwd git
+sudo -H -u git gitolite setup -pk /tmp/rompc.pub
+sudo -u git ls /home/git/repositories
+ssh -i ~/.ssh/id_rsa -o IdentitiesOnly=yes -p PORT git@ip info
+git clone ssh://git@IP:PORT/gitolite-admin.git
+
 # For root
 sudo ln -s /local/store/git/Settings/common/zsh/bashrc /root/.bashrc
 sudo ln -s /local/store/git/Settings/common/vim/vimrc /root/.vimrc
