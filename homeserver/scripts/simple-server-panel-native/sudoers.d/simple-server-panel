@@ -1,0 +1,6 @@
+# Replace rom with the user that runs the service, if needed.
+rom ALL=(root) NOPASSWD: /bin/mount -t ntfs /dev/sdc1 /samba/private
+rom ALL=(root) NOPASSWD: /bin/mount /dev/sdb /samba/private/TV_NEW
+rom ALL=(root) NOPASSWD: /bin/umount /samba/private/TV_NEW
+rom ALL=(root) NOPASSWD: /bin/umount /samba/private
+rom ALL=(root) NOPASSWD: /bin/systemctl restart minidlna.service

@@ -1,0 +1,15 @@
+[Unit]
+Description=Simple Server Panel
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/simple-server-panel
+EnvironmentFile=/opt/simple-server-panel/.env
+ExecStart=/opt/simple-server-panel/.venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8080
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

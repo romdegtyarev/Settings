@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="10">
+
+    <style>
+        :root {
+            --bg: #111827;
+            --card: #1f2937;
+            --card2: #273244;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --ok: #22c55e;
+            --err: #ef4444;
+            --accent: #60a5fa;
+            --border: #374151;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        h1 {
+            margin: 0 0 20px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 16px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 18px;
+            box-shadow: 0 10px 30px rgb(0 0 0 / 20%);
+        }
+
+        .label {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .value {
+            font-size: 24px;
+            font-weight: 700;
+            margin-top: 6px;
+            word-break: break-word;
+        }
+
+        .section {
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            color: var(--muted);
+            font-weight: 600;
+            background: var(--card2);
+        }
+
+        .progress {
+            height: 10px;
+            border-radius: 999px;
+            background: #111827;
+            overflow: hidden;
+            margin-top: 6px;
+        }
+
+        .progress > div {
+            height: 100%;
+            background: var(--accent);
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            border: 0;
+            border-radius: 12px;
+            padding: 12px 18px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            color: white;
+        }
+
+        .start {
+            background: var(--ok);
+        }
+
+        .stop {
+            background: var(--err);
+        }
+
+        .message {
+            white-space: pre-wrap;
+            margin-bottom: 16px;
+            border-radius: 12px;
+            padding: 14px;
+            border: 1px solid var(--border);
+            background: var(--card);
+        }
+
+        .message.ok {
+            border-color: var(--ok);
+        }
+
+        .message.error {
+            border-color: var(--err);
+        }
+
+        @media (max-width: 720px) {
+            main {
+                padding: 14px;
+            }
+
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+<main>
+    <h1>{{ title }}</h1>
+
+    {% if message %}
+    <div class="message {{ status }}">{{ message }}</div>
+    {% endif %}
+
+    <div class="grid">
+        <div class="card">
+            <div class="label">Время</div>
+            <div class="value">{{ info.now }}</div>
+            <div class="label">{{ info.timezone }}</div>
+        </div>
+
+        <div class="card">
+            <div class="label">Hostname</div>
+            <div class="value">{{ info.hostname }}</div>
+        </div>
+
+        <div class="card">
+            <div class="label">Uptime</div>
+            <div class="value">{{ info.uptime }}</div>
+        </div>
+
+        <div class="card">
+            <div class="label">CPU</div>
+            <div class="value">{{ info.cpu_percent }}%</div>
+            <div class="label">Load avg: {{ info.load_avg }}</div>
+        </div>
+
+        <div class="card">
+            <div class="label">RAM</div>
+            <div class="value">{{ info.memory_percent }}%</div>
+            <div class="label">{{ info.memory_used }} / {{ info.memory_total }}</div>
+        </div>
+
+        <div class="card">
+            <div class="label">MiniDLNA</div>
+            <div class="value">{{ info.minidlna_status }}</div>
+        </div>
+    </div>
+
+    <div class="card section">
+        <h2>Управление</h2>
+
+        <form class="actions" method="post" action="/action">
+            <button class="start" type="submit" name="mode" value="Start">Start</button>
+            <button class="stop" type="submit" name="mode" value="Stop">Stop</button>
+        </form>
+    </div>
+
+    <div class="card section">
+        <h2>Диски</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Device</th>
+                    <th>Mount</th>
+                    <th>FS</th>
+                    <th>Used</th>
+                    <th>Free</th>
+                    <th>%</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for disk in disks %}
+                <tr>
+                    <td>{{ disk.device }}</td>
+                    <td>{{ disk.mountpoint }}</td>
+                    <td>{{ disk.fstype }}</td>
+                    <td>{{ disk.used }} / {{ disk.total }}</td>
+                    <td>{{ disk.free }}</td>
+                    <td>
+                        {{ disk.percent }}%
+                        <div class="progress">
+                            <div style="width: {{ disk.percent }}%"></div>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+</body>
+</html>
