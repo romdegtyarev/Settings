@@ -13,11 +13,9 @@ if [[ $mode == "Start" ]]
 then
     #Before start
     echo "Start"
-    sudo mount /dev/sdc1 /samba/private
+    sudo mount -t ntfs /dev/sdc1 /samba/private
     sudo mount /dev/sdb /samba/private/TV_NEW
     sudo systemctl restart minidlna.service
-    timedatectl set-timezone Asia/Novosibirsk
-    sudo ntpdate time.google.com
     echo "sudo nut-scanner -U"
 
 elif [[ $mode == "Stop" ]]
@@ -30,5 +28,3 @@ then
 else
     echo "Invalid mode"
 fi
-
-
