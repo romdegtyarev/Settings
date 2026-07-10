@@ -1,42 +1,24 @@
 #!/bin/bash
 
 # zsh
-ln -s ~/local/store/git/Settings/common/zsh/bashrc ~/.bashrc
-ln -s ~/local/store/git/Settings/rommacair/zsh/zshrc ~/.zshrc
+ln -s ~/git/Settings/common/zsh/bashrc ~/.bashrc
+ln -s ~/git/Settings/rommacair/zsh/zshrc ~/.zshrc
 # Copy themes and plugins
-cp -r ~/local/store/git/Settings/common/zsh/themes/* ~/.oh-my-zsh/themes/
-cp -r ~/local/store/git/Settings/common/zsh/plugins/* ~/.oh-my-zsh/custom/plugins/
+cp -r ~/git/Settings/common/zsh/themes/* ~/.oh-my-zsh/themes/
+cp -r ~/git/Settings/common/zsh/plugins/* ~/.oh-my-zsh/custom/plugins/
 
 # tmux
-ln -s ~/local/store/git/Settings/rommacair/tmux/tmux.conf ~/.tmux.conf
+ln -s ~/git/Settings/rommacair/tmux/tmux.conf ~/.tmux.conf
 
 # Apps
 #SSH
-sudo cp /local/store/git/Settings/common/ssh/ssh_config /etc/ssh/ssh_config
+sudo cp ~/git/Settings/common/ssh/ssh_config /etc/ssh/ssh_config
 # See common/ssh/help.txt
-ssh-keygen -G /tmp/moduli -b 4096
-sudo ssh-keygen -T /etc/ssh/moduli -f /tmp/moduli
-
-cd /etc/ssh
-sudo rm ssh_host_ecdsa_key*
-sudo rm ssh_host_key*
-sudo ln -s ssh_host_ecdsa_key ssh_host_ecdsa_key
-sudo ln -s ssh_host_key ssh_host_key
-
-cd /etc/ssh
-sudo rm ssh_host_dsa_key*
-sudo ln -s ssh_host_dsa_key ssh_host_dsa_key
-
-cd /etc/ssh
-sudo rm ssh_host_rsa_key*
-sudo ssh-keygen -t rsa -b 4096 -f ssh_host_rsa_key < /dev/null
 
 ssh-keygen -t ed25519
 ssh-keygen -t rsa -b 4096
 
-ln -s ~/local/store/git/Settings/common/gitconfig ~/.gitconfig
-cp ~/local/store/git/Settings/common/gitignoreglobal ~/.gitignoreglobal
-git config --global core.excludesfile ~/.gitignoreglobal
-ln -s ~/local/store/git/Settings/common/vim/vimrc ~/.vimrc
+ln -s ~/git/Settings/common/gitconfig ~/.gitconfig
+ln -s ~/git/Settings/common/vim/vimrc ~/.vimrc
 
 
