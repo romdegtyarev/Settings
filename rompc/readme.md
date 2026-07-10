@@ -317,6 +317,7 @@ pacman -S nextcloud-talk-desktop-bin
   
 *Eclipse Установщик или AUR*  
 pacman -S meld  
+pacman -S obsidian  
 pacman -S wireshark-qt  
 sudo chmod 755 /usr/bin/dumpcap  
 pacman -S aur/opencode  
