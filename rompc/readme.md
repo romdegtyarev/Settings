@@ -332,6 +332,7 @@ pacman -S doxygen
 pacman -S python  
 pacman -S man-db  
 pacman -S man-pages  
+pacman -S aur/debtap  
 
 ### Настройка пакетов для работы:  
 pacman -S aur/memstat  
