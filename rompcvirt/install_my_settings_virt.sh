@@ -21,7 +21,7 @@ sudo ln -s /local/store/git/Settings/common/X11/keyboard /etc/default/keyboard
 ln -s /local/store/git/Settings/rompcvirt/scripts/xmodmap.sh ~/xmodmap.sh
 
 ln -s /local/store/git/Settings/rompcvirt/gtk-3.0/bookmarks ~/.config/gtk-3.0/bookmarks
-ooщln -s /local/store/git/Settings/common/user-dirs.dirs ~/.config/user-dirs.dirs
+ln -s /local/store/git/Settings/common/user-dirs.dirs ~/.config/user-dirs.dirs
 ln -s /local/store/git/Settings/common/user-dirs.locale ~/.config/user-dirs.locale
 
 # Fonts

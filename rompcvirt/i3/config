@@ -253,3 +253,4 @@ bindsym --release Ctrl+End exec --no-startup-id $Scrot_pictures_s
 # Layout
 set $KeyLayoutUpdate (pkill -SIGRTMIN+3 i3blocks)
 bindsym Caps_Lock exec --no-startup-id $KeyLayoutUpdate
+

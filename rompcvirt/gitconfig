@@ -3,7 +3,7 @@
 	name = roman.degtyarev
 [core]
 	editor = vim
-	excludesfile = $HOME/.gitignore
+	excludesfile = $HOME/.gitignoreglobal
 [alias]
 	sts = status --short --branch
 
@@ -14,4 +14,5 @@
 	datellog = log --graph --all --pretty=format:\"%C(yellow)%h%C(auto)%d%C(reset) %s %C(bold green)(%cr) %C(bold blue)<%an>%C(reset)\"
 [push]
 	default = simple
-
+[safe]
+	directory = /usr/share/oh-my-zsh

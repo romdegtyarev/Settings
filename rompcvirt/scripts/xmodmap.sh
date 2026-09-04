@@ -1,5 +1,5 @@
 #!/bin/bash
 
 setxkbmap -option 'grp:caps_toggle'
-setxkbmap -layout us,ru
+setxkbmap -layout ru,us
 
