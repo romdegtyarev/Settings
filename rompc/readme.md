@@ -353,3 +353,8 @@ pacman -S virt-viewer
   
 *Установка необходимых сертификатов*  
 
+### Следить за diff:  
+- install_my_settings.sh  
+- gitconfig  
+- gtk-3.0/bookmarks  
+- i3/i3blocks.conf  

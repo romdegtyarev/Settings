@@ -3,6 +3,7 @@
 	name = Roman Degtyarev
 [core]
 	editor = vim
+	excludesfile = $HOME/.gitignoreglobal
 [alias]
 	sts = status --short --branch
 
@@ -14,7 +15,4 @@
 [push]
 	default = simple
 [safe]
-	directory = /samba/private/ROM/Docs/keys/keys.git
-	directory = /samba/private/ROM/Docs/servers/servers.git
-	directory = /samba/private/ROM/Docs/wodservice/wodservice.git
-	directory = /samba/private/ROM/Docs/plantmonitor/plantmonitor.git
+	directory = /usr/share/oh-my-zsh

@@ -92,6 +92,8 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR=vim
 export PATH="$HOME/.local/npm-global/bin:$PATH"
 export PATH="$HOME/.local/lib/nodejs/node-v24.16.0/bin:$HOME/.local/npm-global/bin:$PATH"
+
+#Secrets
 if [ -f ~/.zsh_secrets ]; then
     source ~/.zsh_secrets
 fi
@@ -103,10 +105,14 @@ alias la='ls -AF'
 alias l='ls -CF'
 
 alias tmux='tmux -2'
-alias sysupdate='sudo pacman -Syyu'
 alias pingg='ping 8.8.8.8'
+
+#For ROMPC
 alias tftpupdate='/srv/tftp/update'
 alias myday='docker run --rm calendarsolver:latest'
+
+#For MACBOOK
+alias icloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
 
 #COPY LIKE MC
 alias cpr='cp -t $(tmux run-shell -b -t right "echo -n #{pane_current_path} > /tmp/tmp_path_on_pane" && sleep 0.01; cat /tmp/tmp_path_on_pane)'
@@ -138,3 +144,4 @@ if [[ -z $TMUX ]]; then
 fi
 
 export PATH="$HOME/.local/bin:$PATH"
+

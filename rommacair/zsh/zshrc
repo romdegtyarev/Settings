@@ -91,6 +91,11 @@ source $ZSH/oh-my-zsh.sh
 ### MY SETTINGS ###
 export EDITOR=vim
 
+#Secrets
+if [ -f ~/.zsh_secrets ]; then
+    source ~/.zsh_secrets
+fi
+
 alias ll='ls -hlF'
 alias lla='ls -hAlF'
 alias lsa='ls -AF'
@@ -126,6 +131,7 @@ if [[ -z $TMUX ]]; then
     fi
 fi
 
+#For MACBOOK
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/rom/.docker/completions $fpath)
 autoload -Uz compinit

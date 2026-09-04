@@ -3,6 +3,7 @@
 	name = roman.degtyarev
 [core]
 	editor = vim
+	excludesfile = $HOME/.gitignore
 [alias]
 	sts = status --short --branch
 
