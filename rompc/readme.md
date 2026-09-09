@@ -221,6 +221,7 @@ pacman -S dmenu
 pacman -S j4-dmenu-desktop  
 pacman -S picom  
 pacman -S feh  
+pacman -S fzf  
   
 pacman -S alsa-utils  
 pacman -S alsa-plugins  

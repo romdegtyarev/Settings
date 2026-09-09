@@ -4,8 +4,8 @@
 ln -s /local/store/git/Settings/common/zsh/bashrc ~/.bashrc
 ln -s /local/store/git/Settings/common/zsh/zshrc ~/.zshrc
 # Copy themes and plugins
-sudo cp -r /local/store/git/Settings/common/zsh/themes/* /usr/share/oh-my-zsh/themes/
-sudo cp -r /local/store/git/Settings/common/zsh/plugins/* /usr/share/oh-my-zsh/custom/plugins/
+sudo cp -r /local/store/git/Settings/common/zsh/themes/* ./.oh-my-zsh/themes/
+sudo cp -r /local/store/git/Settings/common/zsh/plugins/* ./.oh-my-zsh/custom/plugins/
 
 # tmux
 ln -s /local/store/git/Settings/common/tmux/tmux.conf ~/.tmux.conf

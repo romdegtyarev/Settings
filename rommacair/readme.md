@@ -5,6 +5,7 @@ MAC OS
 brew install tmux  
 brew install xclip  
 brew install powerline-go  
+brew install arai2  
 
 ### Следить за diff:  
 - install_my_settings.sh  
