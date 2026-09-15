@@ -6,6 +6,8 @@ brew install tmux
 brew install xclip  
 brew install powerline-go  
 brew install arai2  
+brew install ffmpeg  
+brew install mediainfo  
 
 ### Следить за diff:  
 - install_my_settings.sh  
