@@ -296,6 +296,7 @@ pacman -S aur/xerox-phaser-3020
 pacman -S vlc  
 pacman -S spotify-launcher  
 pacman -S playerctl  
+pacman -S yt-dlp  
   
 pacman -S pinta  
 pacman -S gimp  
