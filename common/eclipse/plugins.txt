@@ -1,10 +1,62 @@
-Bash Editor
-Darkest Dark Theme with DevStyle
-Eclipse C/C++
-Eclipse Color Theme
-Eclipse Docker Tooling
-EGit
-Mylyn WikiText
-PyDev
-Wild Web Developer
-Yaml Editor
+Bash Editor	2.10.0	de.jcup.basheditor.feature.group	Albert Tregnaghi
+C/C++ Autotools support	12.6.0.202606121340	org.eclipse.cdt.autotools.feature.group	Eclipse CDT
+C/C++ CMake Build Support - Preview	12.6.0.202608191652	org.eclipse.cdt.cmake.feature.group	Eclipse CDT
+C/C++ Development Tools	12.6.0.202608191700	org.eclipse.cdt.feature.group	Eclipse CDT
+C/C++ Docker Container Launch Support	12.6.0.202606121340	org.eclipse.cdt.docker.launcher.feature.group	Eclipse CDT
+C/C++ GCC Cross Compiler Support	12.6.0.202606121340	org.eclipse.cdt.build.crossgcc.feature.group	Eclipse CDT
+C/C++ GDB Hardware Debugging	12.6.0.202606121340	org.eclipse.cdt.debug.gdbjtag.feature.group	Eclipse CDT
+C/C++ Launch over Serial	12.6.0.202606121340	org.eclipse.cdt.launch.serial.feature.feature.group	Eclipse CDT
+C/C++ Library API Documentation Hover Help	8.24.0.202609012016	org.eclipse.linuxtools.cdt.libhover.feature.feature.group	Eclipse Linux Tools
+C/C++ LLDB Debugger Integration	12.6.0.202606121340	org.eclipse.cdt.llvm.dsf.lldb.feature.group	Eclipse CDT
+C/C++ LLVM-Family Compiler Build Support	12.6.0.202606121340	org.eclipse.cdt.managedbuilder.llvm.feature.group	Eclipse CDT
+C/C++ LSP Support	3.7.0.202606121402	org.eclipse.cdt.lsp.feature.feature.group	Eclipse CDT
+C/C++ Memory View Enhancements	12.6.0.202606250451	org.eclipse.cdt.debug.ui.memory.feature.group	Eclipse CDT
+C/C++ Meson Build Support - Preview	12.6.0.202606121340	org.eclipse.cdt.meson.feature.group	Eclipse CDT
+C/C++ Remote Launch	12.6.0.202606121340	org.eclipse.cdt.launch.remote.feature.group	Eclipse CDT
+C/C++ Standalone Debugger	12.6.0.202606121340	org.eclipse.cdt.debug.standalone.feature.group	Eclipse CDT
+C/C++ Unit Testing Support	12.6.0.202606121340	org.eclipse.cdt.testsrunner.feature.feature.group	Eclipse CDT
+ChangeLog Management Tools for C/C++	8.24.0.202609012016	org.eclipse.linuxtools.changelog.c.feature.group	Eclipse Linux Tools
+Claude Code for Eclipse IDE (Unofficial)	3.2.27.202610290938	com.anthropic.claudecode.eclipse.feature.feature.group	eilonwy06
+Eclipse Color Theme	1.0.0.201410260308	com.github.eclipsecolortheme.feature.feature.group	GitHub
+Eclipse IDE for C/C++ Developers	4.41.0.20260903-0719	epp.package.cpp	Eclipse Packaging Project
+Eclipse Platform	4.41.0.v20260828-1142	org.eclipse.platform.feature.group	Eclipse.org
+Eclipse RCP	4.41.0.v20260828-1142	org.eclipse.rcp.feature.group	Eclipse.org
+GCov Integration	8.24.0.202609012016	org.eclipse.linuxtools.gcov.feature.group	Eclipse Linux Tools
+GDB Tracepoint Analysis	12.0.0.202607111610	org.eclipse.tracecompass.gdbtrace.feature.group	Eclipse Trace Compass
+Git integration for Eclipse	7.8.0.202609011348-r	org.eclipse.egit.feature.group	Eclipse EGit
+GProf Integration	8.24.0.202609012016	org.eclipse.linuxtools.gprof.feature.feature.group	Eclipse Linux Tools
+Java implementation of Git	7.8.0.202609011348-r	org.eclipse.jgit.feature.group	Eclipse JGit
+JustJ Adoptium OpenJDK Hotspot JRE Complete	25.0.5.v20261030-0959	org.eclipse.justj.openjdk.hotspot.jre.full.feature.group	Eclipse JustJ
+LaunchBar	12.6.0.202606121340	org.eclipse.launchbar.feature.group	Eclipse CDT
+Library Hover help for devhelp documentation	8.24.0.202609012016	org.eclipse.linuxtools.cdt.libhover.devhelp.feature.feature.group	Eclipse Linux Tools
+LTTng Kernel Analysis	12.0.0.202607111610	org.eclipse.tracecompass.lttng2.kernel.feature.group	Eclipse Trace Compass
+LTTng Tracer Control	12.0.0.202607111610	org.eclipse.tracecompass.lttng2.control.feature.group	Eclipse Trace Compass
+LTTng Userspace Analysis	12.0.0.202607111610	org.eclipse.tracecompass.lttng2.ust.feature.group	Eclipse Trace Compass
+Markdown Viewer	1.5.2.v20261030-123448	io.github.insjang.mdviewer.feature.group	insjang
+Marketplace Client	1.13.1.v20260819-1736	org.eclipse.epp.mpc.feature.group	Eclipse Marketplace Client
+Mylyn Builds Connector: Jenkins	4.12.0.v20260826-1729	org.eclipse.mylyn.jenkins.feature.feature.group	Eclipse Mylyn
+Mylyn Commons Activity	4.12.0.v20260604-0901	org.eclipse.mylyn.commons.activity.feature.feature.group	Eclipse Mylyn
+Mylyn Context Connector: C/C++ Development	5.33.0.v20260604-0901	org.eclipse.mylyn.cdt.feature.feature.group	Eclipse Mylyn
+Mylyn Context Connector: Eclipse IDE	4.12.0.v20260708-0909	org.eclipse.mylyn.ide.feature.feature.group	Eclipse Mylyn
+Mylyn Context Connector: Team Support	4.12.0.v20260712-0739	org.eclipse.mylyn.team.feature.feature.group	Eclipse Mylyn
+Mylyn Git integration - Task focused interface	4.12.0.v20260604-0901	org.eclipse.mylyn.egit.feature.feature.group	Eclipse Mylyn
+Mylyn Reviews	4.12.0.v20260721-0835	org.eclipse.mylyn.reviews.feature.feature.group	Eclipse Mylyn
+Mylyn Task List	4.12.0.v20260826-1729	org.eclipse.mylyn.tasks.feature.feature.group	Eclipse Mylyn
+Mylyn Task-Focused Interface	4.12.0.v20260708-0909	org.eclipse.mylyn.context.feature.feature.group	Eclipse Mylyn
+Mylyn Tasks Connector: Bugzilla	4.12.0.v20260826-1729	org.eclipse.mylyn.bugzilla.feature.feature.group	Eclipse Mylyn
+Mylyn Tasks Connector: GitHub	6.13.0.v20260728-0523	org.eclipse.mylyn.github.feature.feature.group	Eclipse Mylyn
+Mylyn Versions Connector: Git	4.12.0.v20260701-1212	org.eclipse.mylyn.git.feature.feature.group	Eclipse Mylyn
+Mylyn WikiText	4.12.0.v20260819-1641	org.eclipse.mylyn.wikitext.feature.feature.group	Eclipse Mylyn
+Oomph Setup	1.41.0.v20261014-0949	org.eclipse.oomph.setup.feature.group	Eclipse Oomph Project
+PyDev for Eclipse	13.1.0.202509210817	org.python.pydev.feature.feature.group	Fabio Zadrozny
+Remote Launch Targets	12.6.0.202606121340	org.eclipse.launchbar.remote.feature.group	Eclipse CDT
+RPM Tools	8.24.0.202609012016	org.eclipse.linuxtools.rpm.feature.group	Eclipse Linux Tools
+Serial Connector for Eclipse Terminal	12.6.0.202606121340	org.eclipse.tm.terminal.connector.cdtserial.feature.feature.group	Eclipse CDT
+Terminal Feature	1.0.400.v20260812-1204	org.eclipse.terminal.feature.feature.group	Eclipse.org
+TextMate Core	0.18.0.202608200919	org.eclipse.tm4e.feature.feature.group	Eclipse TM4E
+TextMate Language Pack	0.18.0.202608200919	org.eclipse.tm4e.language_pack.feature.feature.group	Eclipse TM4E
+Valgrind Tools Integration	8.24.0.202609012016	org.eclipse.linuxtools.valgrind.feature.group	Eclipse Linux Tools
+WWD Node.js Embedder	1.2.7.202610280056	org.eclipse.wildwebdeveloper.embedder.node.feature.feature.group	Eclipse Wild Web Developer
+WWD Tools for HTML, CSS, JSON, YAML, JavaScript, TypeScript, and Node	1.4.2.202610280056	org.eclipse.wildwebdeveloper.feature.feature.group	Eclipse Wild Web Developer
+WWD Tools for XML	1.3.9.202606290658	org.eclipse.wildwebdeveloper.xml.feature.feature.group	Eclipse Wild Web Developer
+Yaml Editor	1.9.0	de.jcup.yamleditor.feature.group	Albert Tregnaghi
