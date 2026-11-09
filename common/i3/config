@@ -34,7 +34,7 @@ bindsym Ctrl+$mod+e exec eclipse
 bindsym Ctrl+$mod+b exec firefox
 bindsym Ctrl+$mod+m exec thunderbird
 bindsym Ctrl+$mod+f exec Telegram
-bindsym Ctrl+$mod+j exec mattermost-desktop
+bindsym Ctrl+$mod+j exec elph-nova
 bindsym Ctrl+$mod+t exec gedit
 bindsym Ctrl+$mod+v exec virtualbox
 bindsym Ctrl+$mod+7 exec playerctl previous
@@ -214,7 +214,7 @@ assign [class="thunderbird"] $wspace2
 assign [class="firefox"] $wspace3
 assign [class="Chromium"] $wspace3
 assign [class="TelegramDesktop"] $wspace4
-assign [class="Mattermost"] $wspace4
+assign [class="elph-nova"] $wspace4
 assign [class="Pcmanfm"] $wspace5
 assign [class="Gedit"] $wspace6
 assign [class="KeePassXC"] $wspace8

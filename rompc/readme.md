@@ -145,6 +145,10 @@ pacman -S tmux
 pacman -S xclip  
 pacman -S htop  
 pacman -S tree  
+pacman -S lazygit  
+pacman -S lazydocker  
+pacman -S btop  
+pacman -S bat  
   
 pacman -S ufw  
 sudo ufw enable  
