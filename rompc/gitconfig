@@ -3,7 +3,7 @@
 	name = Jon Up
 [core]
 	editor = vim
-	excludesfile = $HOME/.gitignoreglobal
+	excludesfile = ~/.gitignoreglobal
 [alias]
 	sts = status --short --branch
 
