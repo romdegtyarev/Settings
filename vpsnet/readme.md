@@ -42,6 +42,7 @@ sudo apt-get install zsh
 sudo apt-get install tmux  
 sudo apt-get install xclip  
 sudo apt-get install htop  
+sudo apt-get install fzf  
 
 ### Настройка хранилища:  
 mkdir -p /local/store/  
@@ -57,7 +58,7 @@ cd /usr/share/
 sudo mkdir oh-my-zsh  
 cd  
 cd .oh-my-zsh  
-sudo cp -r ./ /usr/share/oh-my-zsh/  
+sudo cp -r ./ ~/.oh-my-zsh/  
 *Темы и плагины есть в install_my_settings.sh*  
 
 ### Настройка github:  

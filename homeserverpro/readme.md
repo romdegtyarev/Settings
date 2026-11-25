@@ -174,7 +174,7 @@ cd /usr/share/
 sudo mkdir oh-my-zsh  
 cd  
 cd .oh-my-zsh  
-sudo cp -r ./ /usr/share/oh-my-zsh/  
+sudo cp -r ./ ~/.oh-my-zsh/  
 *Темы и плагины есть в install_my_settings.sh*  
 
 ### Настройка github:  

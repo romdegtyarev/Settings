@@ -15,4 +15,6 @@
 [push]
 	default = simple
 [safe]
-	directory = /usr/share/oh-my-zsh
+	directory = ~/.oh-my-zsh
+[fetch]
+	prune = true
