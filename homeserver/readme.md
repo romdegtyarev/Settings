@@ -138,6 +138,7 @@ pacman -S zsh
 pacman -S tmux  
 pacman -S xclip  
 pacman -S htop  
+pacman -S fzf  
   
 pacman -S ufw  
 sudo ufw enable  
